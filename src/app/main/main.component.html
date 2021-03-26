@@ -1,0 +1,17 @@
+<div class='main__general'>
+    <div class="general__search-menu">
+        <div class='search-menu__menu'>
+            <app-menu></app-menu>
+            <span>Menu</span>
+        </div>
+        <input class='search-menu__search' type="text" placeholder="Site search">
+    </div>
+    <app-slider></app-slider>
+     <div class="categories">
+          <app-category class='category' *ngFor='let category of categories' [category]='category'></app-category>
+     </div>
+
+     <div class='general__choices'>
+         <app-choice-goods class='choices' [name]='popular'></app-choice-goods>
+     </div>
+</div>

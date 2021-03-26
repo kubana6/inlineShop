@@ -1,0 +1,33 @@
+.header__container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .container__information {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 40%;
+        a {
+            text-decoration: none;
+            color: #fff;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+    .container__user-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        p{ 
+            margin: 0;
+        }
+    }
+}

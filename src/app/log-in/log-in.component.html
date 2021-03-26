@@ -1,0 +1,6 @@
+
+
+<p *ngIf='!photoUrl; else logoBlock'>Log in</p>
+
+<ng-template #logoBlock><img class='logo' src='{{photoUrl}}'/>
+</ng-template>
