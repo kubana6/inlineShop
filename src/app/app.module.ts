@@ -13,14 +13,21 @@ import { SliderComponent } from './slider/slider.component';
 import { CategoryComponent } from './category/category.component';
 import { ChoiceGoodsComponent } from './choice-goods/choice-goods.component';
 import { FooterComponent } from './footer/footer.component';
-import { SecondComponent } from './second/second.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
+import { ImagePipe } from './pipes/image.pipe';
+import { SmartphonesComponent } from './smartphones/smartphones.component';
+import {ZoomDirective} from './services/zoom.directive';
+import {ContentDirective} from './services/content.directive';
+import { CartItemComponent } from './cart-item/cart-item.component';
+// import { FormOrderInformationComponent } from './form-order-information/form-order-information.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +41,15 @@ import { HomePageComponent } from './home-page/home-page.component';
     CategoryComponent,
     ChoiceGoodsComponent,
     FooterComponent,
-    SecondComponent,
-    LoginComponent,
     HomePageComponent,
+    AuthorizationComponent,
+    ShopingCartComponent,
+    ImagePipe,
+    SmartphonesComponent,
+    ZoomDirective,
+    ContentDirective,
+    CartItemComponent
+    // FormOrderInformationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +57,10 @@ import { HomePageComponent } from './home-page/home-page.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

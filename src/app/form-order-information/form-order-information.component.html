@@ -1,0 +1,24 @@
+<h1>Add your address</h1>
+<form [formGroup]="addressForm" (submit)="onSubmit()">
+	<label for="name">имя</label>
+	<input type="text" id="name" formControlName="name" />
+  <div class="error" *ngIf="isControlInvalid('name')">
+    Имя должно состоять только из русских букв
+  </div>
+	<br/><br/>
+
+	<label for="email">email</label>
+	<input type="text" id="email" formControlName="email" />
+    <div class="error" *ngIf="isControlInvalid('email')">
+    Введите валидный адрес почты
+  </div>
+	<br/><br/>
+
+	<button type="submit">отправить</button>
+</form>
+
+<hr/><br/>
+
+<div>
+	{{myFirstReactiveForm.value | json}}
+</div>

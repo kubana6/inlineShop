@@ -1,6 +1,6 @@
 
 
-<p *ngIf='!photoUrl; else logoBlock'>Log in</p>
+<p class="login" *ngIf='!photoUrl; else logoBlock' (click)='windowModal.changeAuthWindow()'>Log in</p>
 
-<ng-template #logoBlock><img class='logo' src='{{photoUrl}}'/>
+<ng-template #logoBlock><img class='photo' src='{{photoUrl}}'/>
 </ng-template>

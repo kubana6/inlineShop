@@ -1,0 +1,10 @@
+<div class='login' (click)='changeModal($event)'>
+  <div class="form" (click)="$event.stopPropagation()">
+    <div class='form__close' (click)='changeModal($event)'>Close</div>
+    <div class="form__auth"><button class='auth__google' (click)='goTo()'>
+
+      <img src="../../assets/img/googleLogo.svg" alt=""> Google
+  </button></div>
+
+  </div>
+</div>

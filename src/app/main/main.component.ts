@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CATEGORIES} from '../mock-category'
 @Component({
   selector: 'app-main',
@@ -7,6 +7,7 @@ import {CATEGORIES} from '../mock-category'
 })
 export class MainComponent implements OnInit {
   categories = CATEGORIES
+
   constructor() { }
   popular = 'POPULAR'
   BEST="BEST FEEDBACK"

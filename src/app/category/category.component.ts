@@ -7,11 +7,11 @@ import { ICategory } from '../category';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
- 
+
   constructor() { }
-  
+
   ngOnInit(): void {
-  } 
-  @Input() category:any
+  }
+  @Input() category: any
 
 }
