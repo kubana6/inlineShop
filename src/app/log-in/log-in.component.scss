@@ -8,3 +8,13 @@
     height: 40px;
     border-radius: 50%;
 }
+.user-photo {
+     width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    p {
+      margin: 0;
+      cursor: pointer;
+    }
+}

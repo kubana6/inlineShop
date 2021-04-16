@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {combineLatest} from 'rxjs';
+import {combineLatest, Subscription} from 'rxjs';
 import {map, switchMap, take, takeWhile, tap} from 'rxjs/operators';
 import {ModalWindowService} from './services/modal-window.service';
 import {UploadService} from './services/upload.service';
@@ -19,18 +19,20 @@ export class AppComponent implements OnInit {
   imageLink: string = '';
   progress: string = '';
   private authValue: {};
+  private getFindFeld: Subscription
 
   constructor(public modalAuth: ModalWindowService, private uploadService: UploadService,
               private crudService: CrudService,
               private storageService: StorageService,
-              private auth: AuthserviceService
+              private auth: AuthserviceService,
+
   ) {
 
   }
 
   public isActive = this.modalAuth.isActiveWindow;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.storageService.authData$.pipe(
     ).subscribe(value => this.authValue = value);
     this.crudService.getData('smartphones')
@@ -40,65 +42,46 @@ export class AppComponent implements OnInit {
     this.auth.user$.pipe(
       map(value => value ? value.providerData : []),
     ).subscribe(value => {
+
       if (value.length > 0) {
         this.storageService.authData = value[0];
-        this.getUserData()
+        this.modalAuth.changeLogin(true)
+        this.getUserData();
       }
     });
-
-
-    // this.crudService.findField('users', 'uid', value.uid)
-    //   .subscribe(
-    //     value => {
-    //       this.storageService.user = value[0];
-    //     }
-    //   );
-    // .pipe(
-    //     map(userValue => {
-    //       if (userValue.length < 1) {
-    //         const data = {
-    //           name: value.displayName,
-    //           uid: value.uid,
-    //           cart: [],
-    //           address:[]
-    //         };
-    //         this.crudService.createEntity('users', data);
-    //         return data;
-    //       } else {
-    //         return userValue;
-    //       }
-    //     }),
-    //   )
-    // BqHCjzZ1xVM7oRQmc5elhtvhBcN2
   }
 
 
-  private getUserData() {
-    if(this.authValue) {
+  private getUserData(): void {
+    if (this.authValue) {
 
-      console.log(this.authValue)
-      this.crudService.findField('users', 'uid', this.authValue['uid']).pipe(
+      this.getFindFeld = this.crudService.findField('users', 'uid', this.authValue['uid']).pipe(
         map(userValue => {
-                if (userValue.length < 1) {
-                  const data = {
-                    name: this.authValue['displayName'],
-                    uid: this.authValue['uid'],
-                    cart: [],
-                    address:[],
-                    email: this.authValue['email'],
-                    photo:this.authValue['photoURL'],
-                    orders:[],
-                  };
-                  this.crudService.createEntity('users', data);
-                  return data;
-                } else {
-                  return userValue;
-                }
-              }
-      ))
+            if (userValue.length < 1) {
+              const data = {
+                name: this.authValue['displayName'],
+                uid: this.authValue['uid'],
+                cart: [],
+                address: [],
+                email: this.authValue['email'],
+                photo: this.authValue['photoURL'],
+                orders: [],
+              };
+              this.crudService.createEntity('users', data);
+              return data;
+            } else {
+              return userValue;
+            }
+          }
+        ))
         .subscribe(
           value => {
-            this.storageService.user = value[0];
+            if(!this.authValue['uid']) {
+              this.storageService.user = {}
+            } else {
+              this.storageService.user = value[0];
+            }
+
           }
         );
     }

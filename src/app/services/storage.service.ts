@@ -36,11 +36,16 @@ export class StorageService {
   }
 
   public get authData(): any {
-    return this._user;
+    return this.authData;
   }
 
   public set authData(_authData: any) {
     this._authData = _authData;
     this.authData$.next(this._authData);
+  }
+
+  public set clearData(obj:{}) {
+    this.authData={}
+    this.user= {}
   }
 }

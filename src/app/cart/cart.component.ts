@@ -18,7 +18,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getUserData = this.storage.user$.pipe(
-      map(value => value?.cart.length)
+      map(value => value?.cart?.length)
     )
       .subscribe(value => {
         this.cartCount = value;

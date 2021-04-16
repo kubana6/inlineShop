@@ -24,9 +24,9 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
     this.getUserData = this.storage.user$
       .subscribe(value => {
         this.userData = value;
-        this.totalOrders = value?.cart.length;
+        this.totalOrders = value?.cart?.length;
         this.cart = value?.cart;
-        this.isEmpty = value?.cart.length> 0 ;
+        this.isEmpty = value?.cart?.length> 0 ;
       });
   }
 
