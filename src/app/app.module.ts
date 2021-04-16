@@ -27,7 +27,7 @@ import { SmartphonesComponent } from './smartphones/smartphones.component';
 import {ZoomDirective} from './services/zoom.directive';
 import {ContentDirective} from './services/content.directive';
 import { CartItemComponent } from './cart-item/cart-item.component';
-// import { FormOrderInformationComponent } from './form-order-information/form-order-information.component';
+import { FormOrderInformationComponent } from './form-order-information/form-order-information.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +48,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     SmartphonesComponent,
     ZoomDirective,
     ContentDirective,
-    CartItemComponent
-    // FormOrderInformationComponent,
+    CartItemComponent,
+    FormOrderInformationComponent,
   ],
   imports: [
     BrowserModule,

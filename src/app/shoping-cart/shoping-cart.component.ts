@@ -15,7 +15,8 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
   private getUserData: Subscription;
   public userData: IUser;
   public cart: ICart[];
-
+  public isFormActive:boolean = false
+  public isEmpty:boolean= true;
   constructor(private storage: StorageService, crud: CrudService) {
   }
 
@@ -25,10 +26,15 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
         this.userData = value;
         this.totalOrders = value?.cart.length;
         this.cart = value?.cart;
+        this.isEmpty = value?.cart.length> 0 ;
       });
   }
 
-  ngOnDestroy() {
+  public addForm() {
+      this.isFormActive = true
+  }
+
+  ngOnDestroy():void {
     this.getUserData.unsubscribe();
   }
 }

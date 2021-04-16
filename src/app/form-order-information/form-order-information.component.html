@@ -1,24 +1,102 @@
-<h1>Add your address</h1>
-<form [formGroup]="addressForm" (submit)="onSubmit()">
-	<label for="name">имя</label>
-	<input type="text" id="name" formControlName="name" />
-  <div class="error" *ngIf="isControlInvalid('name')">
-    Имя должно состоять только из русских букв
-  </div>
-	<br/><br/>
+<div class="form-order">
+  <h1>Write your Information</h1>
+  <h3>Address</h3>
+  <form [formGroup]="formOrder" class='form-control'(submit)="onSubmit()">
 
-	<label for="email">email</label>
-	<input type="text" id="email" formControlName="email" />
-    <div class="error" *ngIf="isControlInvalid('email')">
-    Введите валидный адрес почты
-  </div>
-	<br/><br/>
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city"/>
+    <div *ngIf="isControlInvalid('city')">
+      <small class="error" *ngIf="errorsField('city').required">
+        field must not be empty
+      </small>
+    </div>
 
-	<button type="submit">отправить</button>
-</form>
+    <label for="street">Street</label>
+    <input type="text" id="street" formControlName="street"/>
+    <div *ngIf="isControlInvalid('street')">
+      <small class="error" *ngIf="errorsField('street').required">
+        field must not be empty
+      </small>
+    </div>
+    <br/><br/>
+    <div class="form-control__information-house">
+      <div class="information-house__detail">
+        <label for="house">House</label>
+        <input type="text" id="house" formControlName="house"/>
+<!--        <div *ngIf="isControlInvalid('house')">-->
+<!--          <small class="error" *ngIf="errorsField('house').required">-->
+<!--            field must not be empty-->
+<!--          </small>-->
+<!--        </div>-->
+      </div>
+      <div class="information-house__detail">
+        <label for="corps">Corps</label>
+        <input type="text" id="corps" formControlName="corps"/>
+<!--        <div *ngIf="isControlInvalid('corps')">-->
+<!--          <small class="error" *ngIf="errorsField('corps').required">-->
+<!--            field must not be empty-->
+<!--          </small>-->
+<!--        </div>-->
+      </div>
+      <div class="information-house__detail">
+        <label for="entrance">Entr.</label>
+        <input type="text" id="entrance" formControlName="entrance"/>
+<!--        <div *ngIf="isControlInvalid('entrance')">-->
+<!--          <small class="error" *ngIf="errorsField('entrance').required">-->
+<!--            field must not be empty-->
+<!--          </small>-->
+<!--        </div>-->
+      </div>
+      <div class="information-house__detail">
+        <label for="floor">Floor</label>
+        <input type="text" id="floor" formControlName="floor"/>
+<!--        <div *ngIf="isControlInvalid('floor')">-->
+<!--          <small class="error" *ngIf="errorsField('floor').required">-->
+<!--            field must not be empty-->
+<!--          </small>-->
+<!--        </div>-->
+      </div>
+      <div class="information-house__detail">
+        <label for="apartment">Apart</label>
+        <input type="text" id="apartment" formControlName="apartment"/>
+<!--        <div *ngIf="isControlInvalid('apartment')">-->
+<!--          <small class="error" *ngIf="errorsField('apartment').required">-->
+<!--            field must not be empty-->
+<!--          </small>-->
+<!--        </div>-->
+      </div>
+    </div>
+    <br/><br/>
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" formControlName="fullName"/>
+    <div *ngIf="isControlInvalid('fullName')">
+      <small class="error" *ngIf="errorsField('fullName').required">
+        field must not be empty
+      </small>
+    </div>
+    <br/><br/>
+     <h3>Contact details </h3>
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email"/>
+    <div *ngIf="isControlInvalid('email')">
+      <small class="error" *ngIf="errorsField('email').required">
+        field must not be empty
+      </small>
+      <small class="error" *ngIf="errorsField('email').pattern">
+        invalid email
+      </small>
 
-<hr/><br/>
+    </div>
 
-<div>
-	{{myFirstReactiveForm.value | json}}
+    <br/><br/>
+    <label for="phone">Phone</label>
+    <input type="phone" id="phone" formControlName="phone"/>
+    <div *ngIf="isControlInvalid('phone')">
+      <small class="error" *ngIf="errorsField('phone').required">
+        field must not be empty
+      </small>
+    </div>
+    <br/><br/>
+    <button type="submit" [disabled]="formOrder.invalid" >отправить</button>
+  </form>
 </div>

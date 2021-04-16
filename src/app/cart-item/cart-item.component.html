@@ -1,8 +1,8 @@
 <div class="detail__product">
   <img [src]='product?.img' alt="">
-  <p>{{product.name}}</p>
+  <p>{{product?.name}}</p>
   <p>{{item.amount}}</p>
-  <p> {{+product.price * +item.amount}}</p>
+  <p> {{+product?.price * +item.amount}}</p>
   <button (click)="delete()">delete</button>
 </div>
 

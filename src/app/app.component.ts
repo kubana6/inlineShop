@@ -86,7 +86,8 @@ export class AppComponent implements OnInit {
                     cart: [],
                     address:[],
                     email: this.authValue['email'],
-                    photo:this.authValue['photoURL']
+                    photo:this.authValue['photoURL'],
+                    orders:[],
                   };
                   this.crudService.createEntity('users', data);
                   return data;
