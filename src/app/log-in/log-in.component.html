@@ -1,9 +1,10 @@
 
-
-<p class="login" *ngIf='!photoUrl; else logoBlock' (click)='windowModal.changeAuthWindow()'>Log in</p>
-
+<button  mat-icon-button matTooltip="LogIn" class="login" *ngIf='!photoUrl; else logoBlock' (click)='windowModal.changeAuthWindow()'> <mat-icon>login
+</mat-icon></button>
 <ng-template #logoBlock >
   <div class="user-photo"> <img class='photo' src='{{photoUrl}}'/>
-    <p (click)="logOut()">Log out</p></div>
-
+    <button mat-icon-button matTooltip="LogOut" (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+    </button>
+   </div>
 </ng-template>

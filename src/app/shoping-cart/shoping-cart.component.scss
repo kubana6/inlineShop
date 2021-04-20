@@ -1,7 +1,6 @@
 .cart {
   width: 100%;
-  min-height: 61%;
-
+  min-height: calc(100vh - 364px);
   background-color: #ededed;
   .empty {
     width:100%;

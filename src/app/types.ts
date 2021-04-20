@@ -18,3 +18,11 @@ export interface IOrders {
   id: string;
   date: string;
 }
+export interface IAuthValue {
+  displayName: string;
+  email: string;
+  phoneNumber: null| string;
+  photoURL: string;
+  providerId: string;
+  uid: string;
+}

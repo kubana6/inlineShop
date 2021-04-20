@@ -1,4 +1,5 @@
 <a [routerLink]="['/cart']" class='cart'><p>Cart</p>
-  <img class='cart__imeg' src="../../assets/img/cart.svg" alt=""><span>{{cartCount}}</span>
+  <mat-icon [matBadge]="cartCount" matBadgeColor="primary">shopping_cart
+  </mat-icon>
 
 </a>

@@ -1,7 +1,7 @@
 <div class="form-order">
   <h1>Write your Information</h1>
   <h3>Address</h3>
-  <form [formGroup]="formOrder" class='form-control'(submit)="onSubmit()">
+  <form [formGroup]="formOrder" class='form-control' (submit)="onSubmit()">
 
     <label for="city">City</label>
     <input type="text" id="city" formControlName="city"/>
@@ -23,47 +23,47 @@
       <div class="information-house__detail">
         <label for="house">House</label>
         <input type="text" id="house" formControlName="house"/>
-<!--        <div *ngIf="isControlInvalid('house')">-->
-<!--          <small class="error" *ngIf="errorsField('house').required">-->
-<!--            field must not be empty-->
-<!--          </small>-->
-<!--        </div>-->
+        <!--        <div *ngIf="isControlInvalid('house')">-->
+        <!--          <small class="error" *ngIf="errorsField('house').required">-->
+        <!--            field must not be empty-->
+        <!--          </small>-->
+        <!--        </div>-->
       </div>
       <div class="information-house__detail">
         <label for="corps">Corps</label>
         <input type="text" id="corps" formControlName="corps"/>
-<!--        <div *ngIf="isControlInvalid('corps')">-->
-<!--          <small class="error" *ngIf="errorsField('corps').required">-->
-<!--            field must not be empty-->
-<!--          </small>-->
-<!--        </div>-->
+        <!--        <div *ngIf="isControlInvalid('corps')">-->
+        <!--          <small class="error" *ngIf="errorsField('corps').required">-->
+        <!--            field must not be empty-->
+        <!--          </small>-->
+        <!--        </div>-->
       </div>
       <div class="information-house__detail">
         <label for="entrance">Entr.</label>
         <input type="text" id="entrance" formControlName="entrance"/>
-<!--        <div *ngIf="isControlInvalid('entrance')">-->
-<!--          <small class="error" *ngIf="errorsField('entrance').required">-->
-<!--            field must not be empty-->
-<!--          </small>-->
-<!--        </div>-->
+        <!--        <div *ngIf="isControlInvalid('entrance')">-->
+        <!--          <small class="error" *ngIf="errorsField('entrance').required">-->
+        <!--            field must not be empty-->
+        <!--          </small>-->
+        <!--        </div>-->
       </div>
       <div class="information-house__detail">
         <label for="floor">Floor</label>
         <input type="text" id="floor" formControlName="floor"/>
-<!--        <div *ngIf="isControlInvalid('floor')">-->
-<!--          <small class="error" *ngIf="errorsField('floor').required">-->
-<!--            field must not be empty-->
-<!--          </small>-->
-<!--        </div>-->
+        <!--        <div *ngIf="isControlInvalid('floor')">-->
+        <!--          <small class="error" *ngIf="errorsField('floor').required">-->
+        <!--            field must not be empty-->
+        <!--          </small>-->
+        <!--        </div>-->
       </div>
       <div class="information-house__detail">
         <label for="apartment">Apart</label>
         <input type="text" id="apartment" formControlName="apartment"/>
-<!--        <div *ngIf="isControlInvalid('apartment')">-->
-<!--          <small class="error" *ngIf="errorsField('apartment').required">-->
-<!--            field must not be empty-->
-<!--          </small>-->
-<!--        </div>-->
+        <!--        <div *ngIf="isControlInvalid('apartment')">-->
+        <!--          <small class="error" *ngIf="errorsField('apartment').required">-->
+        <!--            field must not be empty-->
+        <!--          </small>-->
+        <!--        </div>-->
       </div>
     </div>
     <br/><br/>
@@ -75,7 +75,7 @@
       </small>
     </div>
     <br/><br/>
-     <h3>Contact details </h3>
+    <h3>Contact details </h3>
     <label for="email">Email</label>
     <input type="text" id="email" formControlName="email"/>
     <div *ngIf="isControlInvalid('email')">
@@ -97,6 +97,6 @@
       </small>
     </div>
     <br/><br/>
-    <button type="submit" [disabled]="formOrder.invalid" >отправить</button>
+    <button type="submit" [disabled]="formOrder.invalid">отправить</button>
   </form>
 </div>

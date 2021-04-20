@@ -29,7 +29,9 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
         this.isEmpty = value?.cart?.length> 0 ;
       });
   }
-
+  public trackByFn(index, item) {
+    return item.id; // уникальный идентификатор, соответствующий элементу
+  }
   public addForm() {
       this.isFormActive = true
   }

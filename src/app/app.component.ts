@@ -7,6 +7,7 @@ import {CrudService} from './services/crud.service';
 import {StorageService} from './services/storage.service';
 import {AuthserviceService} from './services/authservice.service';
 import {getMatIconFailedToSanitizeUrlError} from '@angular/material/icon';
+import {IAuthValue} from './types';
 
 
 @Component({
@@ -16,10 +17,8 @@ import {getMatIconFailedToSanitizeUrlError} from '@angular/material/icon';
 })
 export class AppComponent implements OnInit {
   public title = 'onlineShop';
-  imageLink: string = '';
-  progress: string = '';
-  private authValue: {};
-  private getFindFeld: Subscription
+  private authValue: IAuthValue;
+  private getFindFeld: Subscription;
 
   constructor(public modalAuth: ModalWindowService, private uploadService: UploadService,
               private crudService: CrudService,
@@ -35,9 +34,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.storageService.authData$.pipe(
     ).subscribe(value => this.authValue = value);
-    this.crudService.getData('smartphones')
-      .subscribe(value => this.storageService.books = value);
-
 
     this.auth.user$.pipe(
       map(value => value ? value.providerData : []),
@@ -55,16 +51,16 @@ export class AppComponent implements OnInit {
   private getUserData(): void {
     if (this.authValue) {
 
-      this.getFindFeld = this.crudService.findField('users', 'uid', this.authValue['uid']).pipe(
+      this.getFindFeld = this.crudService.findField('users', 'uid', this.authValue.uid).pipe(
         map(userValue => {
             if (userValue.length < 1) {
               const data = {
-                name: this.authValue['displayName'],
-                uid: this.authValue['uid'],
+                name: this.authValue.displayName,
+                uid: this.authValue.uid,
                 cart: [],
                 address: [],
-                email: this.authValue['email'],
-                photo: this.authValue['photoURL'],
+                email: this.authValue.email,
+                photo: this.authValue.photoURL,
                 orders: [],
               };
               this.crudService.createEntity('users', data);
@@ -76,7 +72,7 @@ export class AppComponent implements OnInit {
         ))
         .subscribe(
           value => {
-            if(!this.authValue['uid']) {
+            if(!this.authValue.uid) {
               this.storageService.user = {}
             } else {
               this.storageService.user = value[0];

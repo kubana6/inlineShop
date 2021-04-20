@@ -1,8 +1,15 @@
-<div class="detail__product">
-  <img [src]='product?.img' alt="">
-  <p>{{product?.name}}</p>
-  <p>{{item.amount}}</p>
-  <p> {{+product?.price * +item.amount}}</p>
-  <button (click)="delete()">delete</button>
-</div>
+<mat-card class="detail__product">
+  <img mat-card-image [src]='product?.img' class="product__imeg" alt="">
+  <mat-card-content class="product__info">
+    <p class="product__name">{{product?.name}}</p>
+    <p class="product__amount">{{item.amount}}</p>
+    <p> {{+product?.price * +item.amount}}$</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="delete()" mat-fab color="primary" matTooltip="delete" >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+
+</mat-card>
 

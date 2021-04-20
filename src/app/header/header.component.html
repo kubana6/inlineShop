@@ -1,12 +1,14 @@
-<div class='header__container'>
-    <div class='container__information'>
-        <a href="#">delivery</a>
-        <a href="#">payment</a>
-        <a href="#">about store</a>
-        <a href="#">contacts</a>
-    </div>
-    <div class='container__user-information'>
-        <app-log-in></app-log-in>
-        <app-cart></app-cart>
-    </div>
-</div>
+<mat-toolbar class='header__container' color="primary">
+  <div class="container__menu">
+    <button mat-icon-button >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Menu</span>
+  </div>
+
+
+  <div class='container__user-information'>
+    <app-log-in></app-log-in>
+    <app-cart></app-cart>
+  </div>
+</mat-toolbar>

@@ -3,30 +3,22 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    .container__information {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 40%;
-        a {
-            text-decoration: none;
-            color: #fff;
-            &:hover {
-                opacity: 0.5;
-            }
-        }
+     .container__menu {
+       display: flex;
+       justify-content: center;
+       align-items: center;
     }
     .container__user-information {
+        min-width: 150px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
         a {
             text-decoration: none;
             color: #fff;
         }
-        p{ 
+        p{
             margin: 0;
         }
     }

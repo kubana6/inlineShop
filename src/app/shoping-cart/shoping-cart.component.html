@@ -5,9 +5,9 @@
     </div>
     <div class="cart__info">
       <div class="info_detail">
-        <app-cart-item *ngFor="let items of cart" [item]="items" ></app-cart-item>
+        <app-cart-item *ngFor="let items of cart; trackBy:trackByFn" [item]="items" ></app-cart-item>
       </div>
-      <button (click)="addForm()" *ngIf="!isFormActive"> place your order</button>
+      <button (click)="isFormActive=true" *ngIf="!isFormActive"> place your order</button>
     </div>
 
     <app-form-order-information *ngIf="isFormActive"></app-form-order-information>

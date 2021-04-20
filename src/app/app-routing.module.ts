@@ -6,8 +6,9 @@ import {SmartphonesComponent} from './smartphones/smartphones.component';
 import {ShopingCartComponent} from './shoping-cart/shoping-cart.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'smartphones', component: SmartphonesComponent },
+  { path: 'catalog/:product', component: SmartphonesComponent },
   { path: 'cart', component: ShopingCartComponent },
+
 ];
 
 @NgModule({

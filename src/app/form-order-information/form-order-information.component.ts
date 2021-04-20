@@ -107,7 +107,7 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
         Validators.required,
       ]
       ],
-      email: ['test@emeil.com', [
+      email: ['', [
         Validators.required,
         Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)
       ],
