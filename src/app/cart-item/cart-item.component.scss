@@ -5,12 +5,21 @@
   align-items: center;
   background-color:#ffffff;
   margin-top: 20px;
-
+   p{
+     margin: 0;
+   }
   .product__imeg {
     width: 100%;
     max-width: 170px;
     min-width: 65px;
     margin:0;
+  }
+  .product__info{
+    width:60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
   }
   .info__count {
     display: flex;
@@ -31,5 +40,9 @@
    .detail__product{
      flex-direction: column;
      align-items: first;
+     .product__info{
+       margin-top: 20px;
+       flex-direction: column;
+     }
    }
 }

@@ -47,11 +47,11 @@ export class CartItemComponent implements OnInit, OnDestroy {
       .map(value => {
         if (value.id === this.item.id) {
           switch (buttonValue) {
-            case '-': {
+            case 'remove': {
               value.amount = (+value.amount - 1).toString();
               return value;
             }
-            case '+': {
+            case 'add': {
               value.amount = (+value.amount + 1).toString();
               return value;
             }

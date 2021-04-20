@@ -19,6 +19,7 @@
 
 .cart__total_orders {
   width: 80%;
+  max-width: 1200px;
   font-size: 20px;
   font-weight: 500;
   color: #3f51b5;
@@ -27,16 +28,28 @@
 
 .cart__info {
   width: 80%;
+  max-width: 1200px;
   padding: 20px;
+  margin-bottom: 20px;
   background-color: #e2e3e4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
 
   .info__detail {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     color: black;
+  }
+  .detail__item {
+    width:100%;
+  }
+  .info__btn {
+    margin-top: 20px;
   }
 }
 

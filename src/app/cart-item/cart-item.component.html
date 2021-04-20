@@ -2,19 +2,18 @@
   <img mat-card-image [src]='product?.img' class="product__imeg" alt="">
   <mat-card-content class="product__info">
     <p class="info__name">{{product?.name}}</p>
+    <p>{{product?.price}}</p>
     <div class="info__count">
-      <button (click)="updateAmount($event.target)">-</button>
+      <button mat-button color="primary" (click)="updateAmount($event.target)"><mat-icon>remove</mat-icon></button>
       <p class="info__amount">{{item.amount}}</p>
-      <button (click)="updateAmount($event.target)">+</button>
+      <button mat-button color="primary" (click)="updateAmount($event.target)"><mat-icon>add</mat-icon></button>
     </div>
     <p>{{+product?.price * +item.amount}}$</p>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="delete()" mat-fab color="primary" matTooltip="delete">
       <mat-icon>delete</mat-icon>
-
     </button>
   </mat-card-actions>
-
 </mat-card>
 
