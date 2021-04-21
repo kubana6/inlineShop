@@ -4,6 +4,7 @@ import {StorageService} from '../services/storage.service';
 import {map} from 'rxjs/operators';
 import {ICart, IUser} from '../types';
 import {CrudService} from '../services/crud.service';
+import {ModalWindowService} from '../services/modal-window.service';
 
 @Component({
   selector: 'app-shoping-cart',
@@ -17,7 +18,7 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
   public cart: ICart[];
   public isFormActive:boolean = false
   public isEmpty:boolean= true;
-  constructor(private storage: StorageService, crud: CrudService) {
+  constructor(private storage: StorageService, public modal: ModalWindowService) {
   }
 
   ngOnInit(): void {
@@ -32,9 +33,7 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
   public trackByFn(index, item) {
     return item.id; // уникальный идентификатор, соответствующий элементу
   }
-  public addForm() {
-      this.isFormActive = true
-  }
+
 
   ngOnDestroy():void {
     this.getUserData.unsubscribe();

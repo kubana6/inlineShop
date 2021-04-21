@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {IUser} from '../types';
+import {IGoods, IUser} from '../types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
-  public books$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  private _books: any;
+  private _cartProduct: IGoods[]=[];
   public user$: BehaviorSubject<IUser | null> = new BehaviorSubject<any>(null);
   private _user: IUser | null;
 
@@ -17,13 +16,12 @@ export class StorageService {
   constructor() {
   }
 
-  public get books(): any {
-    return this._books;
+  public get cartProduct(): any {
+    return this._cartProduct;
   }
 
-  public set books(_books: any) {
-    this._books = _books;
-    this.books$.next(this._books);
+  public set cartProduct(_cartProduct:any) {
+    this._cartProduct.push(_cartProduct)
   }
 
   public get user(): any {
@@ -44,8 +42,8 @@ export class StorageService {
     this.authData$.next(this._authData);
   }
 
-  public set clearData(obj:{}) {
-    this.authData={}
-    this.user= {}
+  public set clearData(obj: {}) {
+    this.authData = {};
+    this.user = {};
   }
 }

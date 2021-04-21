@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
         this.getUserData();
       }
     });
+    console.table([
+      ['21.04','Добавил удаление/добавление по одному товару','https://github.com/kubana6/onlineShop/commit/cfc5b642fb0084e81df814e53d4dafe28d05eb4f#diff-08d398104897669bd549f066ba27a0a1d45d647c7674d8452ddb76fca26d8e3c'],
+      ['22.04', 'Изменил форму доставки, добавил в форму информацию о заказе']
+    ])
   }
 
 

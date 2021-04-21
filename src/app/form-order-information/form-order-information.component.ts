@@ -2,9 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {StorageService} from '../services/storage.service';
 import {CrudService} from '../services/crud.service';
-import {IUser} from '../types';
+import {ICart, IGoods, IUser} from '../types';
 import {Subscription} from 'rxjs';
-import {switchMap, tap} from 'rxjs/operators';
+import {switchMap, take, tap} from 'rxjs/operators';
+import {ModalWindowService} from '../services/modal-window.service';
 
 @Component({
   selector: 'app-form-order-information',
@@ -13,26 +14,35 @@ import {switchMap, tap} from 'rxjs/operators';
 })
 export class FormOrderInformationComponent implements OnInit, OnDestroy {
   private getUserData: Subscription;
-  private userData: IUser;
+  public userData: IUser;
   private postOrderData: Subscription;
   private updateUserInformation: Subscription;
   private orderId: string;
   public formOrder: FormGroup;
+  public informationOrder: IGoods[]=[];
+  public  totalPrice: number = 0
 
-  constructor(private fb: FormBuilder, private storage: StorageService, private crud: CrudService) {
+  constructor(private fb: FormBuilder, private storage: StorageService, private crud: CrudService, public modal: ModalWindowService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
     this.getUserData = this.storage.user$.subscribe(value => this.userData = value);
+    this.informationOrder = this.storage.cartProduct.reduce((acc:IGoods[], rec:IGoods) => {
+      const userCart = this.userData.cart.filter((cart) => cart.id === rec.id);
+      this.totalPrice+= +userCart[0].amount  * +rec.price
+      const data = {amount:userCart[0].amount,...rec}
+      return [...acc, data]
+    }, []);
+    console.log(this.informationOrder)
+
   }
 
-  ngOnDestroy() {
-    this.postOrderData.unsubscribe();
+  ngOnDestroy(): void {
     this.getUserData.unsubscribe();
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     if (this.formOrder.valid) {
       const date = new Date().toString();
       const formData = {...this.formOrder.value, date, userId: this.userData.id, order: [...this.userData.cart]};
@@ -52,7 +62,8 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
           }
           return id;
         }),
-        tap(() => this.formOrder.reset())
+        tap(() => this.formOrder.reset()),
+        take(1)
       ).subscribe();
 
     }

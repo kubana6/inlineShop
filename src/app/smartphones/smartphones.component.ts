@@ -46,7 +46,6 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
   }
 
   public updateData(): void {
-    console.log(this.typeProduct);
     this.getData = this.service.getData(this.typeProduct).subscribe((value: IProducts[]) => {
       this.products = value;
     });
@@ -65,7 +64,6 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
       return order;
     }) : [...this.user.cart, {id, amount: '1'}];
 
-    console.log(`old user`, this.user);
     this.service.updateObject('users', this.user.id, {cart}, true).subscribe(value => {
     });
 

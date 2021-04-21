@@ -1,102 +1,128 @@
-<div class="form-order">
-  <h1>Write your Information</h1>
-  <h3>Address</h3>
-  <form [formGroup]="formOrder" class='form-control' (submit)="onSubmit()">
-
-    <label for="city">City</label>
-    <input type="text" id="city" formControlName="city"/>
-    <div *ngIf="isControlInvalid('city')">
-      <small class="error" *ngIf="errorsField('city').required">
-        field must not be empty
-      </small>
+<div class="form__overlay" (click)="modal.changeModalOrder()">
+  <div class="form-order" (click)="$event.stopPropagation()">
+    <div class="form__close" (click)="$event.stopPropagation()">
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+              (click)="modal.changeModalOrder()">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
 
-    <label for="street">Street</label>
-    <input type="text" id="street" formControlName="street"/>
-    <div *ngIf="isControlInvalid('street')">
-      <small class="error" *ngIf="errorsField('street').required">
-        field must not be empty
-      </small>
-    </div>
-    <br/><br/>
-    <div class="form-control__information-house">
-      <div class="information-house__detail">
-        <label for="house">House</label>
-        <input type="text" id="house" formControlName="house"/>
-        <!--        <div *ngIf="isControlInvalid('house')">-->
-        <!--          <small class="error" *ngIf="errorsField('house').required">-->
-        <!--            field must not be empty-->
-        <!--          </small>-->
-        <!--        </div>-->
-      </div>
-      <div class="information-house__detail">
-        <label for="corps">Corps</label>
-        <input type="text" id="corps" formControlName="corps"/>
-        <!--        <div *ngIf="isControlInvalid('corps')">-->
-        <!--          <small class="error" *ngIf="errorsField('corps').required">-->
-        <!--            field must not be empty-->
-        <!--          </small>-->
-        <!--        </div>-->
-      </div>
-      <div class="information-house__detail">
-        <label for="entrance">Entr.</label>
-        <input type="text" id="entrance" formControlName="entrance"/>
-        <!--        <div *ngIf="isControlInvalid('entrance')">-->
-        <!--          <small class="error" *ngIf="errorsField('entrance').required">-->
-        <!--            field must not be empty-->
-        <!--          </small>-->
-        <!--        </div>-->
-      </div>
-      <div class="information-house__detail">
-        <label for="floor">Floor</label>
-        <input type="text" id="floor" formControlName="floor"/>
-        <!--        <div *ngIf="isControlInvalid('floor')">-->
-        <!--          <small class="error" *ngIf="errorsField('floor').required">-->
-        <!--            field must not be empty-->
-        <!--          </small>-->
-        <!--        </div>-->
-      </div>
-      <div class="information-house__detail">
-        <label for="apartment">Apart</label>
-        <input type="text" id="apartment" formControlName="apartment"/>
-        <!--        <div *ngIf="isControlInvalid('apartment')">-->
-        <!--          <small class="error" *ngIf="errorsField('apartment').required">-->
-        <!--            field must not be empty-->
-        <!--          </small>-->
-        <!--        </div>-->
-      </div>
-    </div>
-    <br/><br/>
-    <label for="fullName">Full Name</label>
-    <input type="text" id="fullName" formControlName="fullName"/>
-    <div *ngIf="isControlInvalid('fullName')">
-      <small class="error" *ngIf="errorsField('fullName').required">
-        field must not be empty
-      </small>
-    </div>
-    <br/><br/>
-    <h3>Contact details </h3>
-    <label for="email">Email</label>
-    <input type="text" id="email" formControlName="email"/>
-    <div *ngIf="isControlInvalid('email')">
-      <small class="error" *ngIf="errorsField('email').required">
-        field must not be empty
-      </small>
-      <small class="error" *ngIf="errorsField('email').pattern">
-        invalid email
-      </small>
+    <h1>Write your Information</h1>
+    <h3>Address</h3>
+    <form [formGroup]="formOrder" class='form-control' (submit)="onSubmit()">
 
-    </div>
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input matInput type="text" id="city" formControlName="city"/>
+        <mat-error *ngIf="isControlInvalid('city')">
+          <small class="error" *ngIf="errorsField('city').required">
+            field must not be empty
+          </small>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Street</mat-label>
+        <input matInput type="text" id="street" formControlName="street"/>
+        <mat-error *ngIf="isControlInvalid('street')">
+          <small class="error" *ngIf="errorsField('street').required">
+            field must not be empty
+          </small>
+        </mat-error>
+      </mat-form-field>
+      <div class="form-control__information-house">
+        <mat-form-field class="information-house__detail">
+          <mat-label for="house">House</mat-label>
+          <input matInput type="text" id="house" formControlName="house"/>
 
-    <br/><br/>
-    <label for="phone">Phone</label>
-    <input type="phone" id="phone" formControlName="phone"/>
-    <div *ngIf="isControlInvalid('phone')">
-      <small class="error" *ngIf="errorsField('phone').required">
-        field must not be empty
-      </small>
-    </div>
-    <br/><br/>
-    <button type="submit" [disabled]="formOrder.invalid">отправить</button>
-  </form>
+        </mat-form-field>
+        <mat-form-field class="information-house__detail">
+          <mat-label for="corps">Corps</mat-label>
+          <input matInput type="text" id="corps" formControlName="corps"/>
+          <!--        <div *ngIf="isControlInvalid('corps')">-->
+          <!--          <small class="error" *ngIf="errorsField('corps').required">-->
+          <!--            field must not be empty-->
+          <!--          </small>-->
+          <!--        </div>-->
+        </mat-form-field>
+        <mat-form-field class="information-house__detail">
+          <mat-label for="entrance">Entr.</mat-label>
+          <input matInput type="text" id="entrance" formControlName="entrance"/>
+          <!--        <div *ngIf="isControlInvalid('entrance')">-->
+          <!--          <small class="error" *ngIf="errorsField('entrance').required">-->
+          <!--            field must not be empty-->
+          <!--          </small>-->
+          <!--        </div>-->
+        </mat-form-field>
+        <mat-form-field class="information-house__detail">
+          <mat-label for="floor">Floor</mat-label>
+          <input matInput type="text" id="floor" formControlName="floor"/>
+          <!--        <div *ngIf="isControlInvalid('floor')">-->
+          <!--          <small class="error" *ngIf="errorsField('floor').required">-->
+          <!--            field must not be empty-->
+          <!--          </small>-->
+          <!--        </div>-->
+        </mat-form-field>
+        <mat-form-field class="information-house__detail">
+          <mat-label for="apartment">Apart</mat-label>
+          <input matInput type="text" id="apartment" formControlName="apartment"/>
+          <!--        <div *ngIf="isControlInvalid('apartment')">-->
+          <!--          <small class="error" *ngIf="errorsField('apartment').required">-->
+          <!--            field must not be empty-->
+          <!--          </small>-->
+          <!--        </div>-->
+        </mat-form-field>
+      </div>
+      <h3>Contact details </h3>
+      <mat-form-field>
+        <mat-label for="fullName">Full Name</mat-label>
+        <input matInput type="text" id="fullName" formControlName="fullName"/>
+        <mat-error *ngIf="isControlInvalid('fullName')">
+          <small class="error" *ngIf="errorsField('fullName').required">
+            field must not be empty
+          </small>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="text" id="email" formControlName="email"/>
+        <mat-error *ngIf="isControlInvalid('email')">
+          <small class="error" *ngIf="errorsField('email').required">
+            field must not be empty
+          </small>
+          <mat-error class="error" *ngIf="errorsField('email').pattern">
+            invalid email
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="phone">Phone</mat-label>
+        <input matInput type="phone" id="phone" formControlName="phone"/>
+        <mat-error *ngIf="isControlInvalid('phone')">
+          <small class="error" *ngIf="errorsField('phone').required">
+            field must not be empty
+          </small>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="formOrder.invalid">Send</button>
+    </form>
+  </div>
+  <mat-card>
+    <mat-card-title>
+      <span>Order</span><span>Change</span>
+    </mat-card-title>
+    <mat-card-content>
+      <div *ngFor="let product of informationOrder" class="info__order">
+        <span class="order__product-name">{{product.name}}</span><span>{{product.amount}}</span> <span>{{+product.amount * +product.price }}</span>
+      </div>
+    </mat-card-content>
+    <hr>
+    <mat-card-footer>
+      <div class="delivery"><span>Delivery</span><span>0$</span></div>
+      <div class="total-price">
+        <span>Total</span>
+        <span>{{totalPrice}}$</span>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+
 </div>

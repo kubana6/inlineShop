@@ -7,10 +7,10 @@
       <div class="info__detail">
         <app-cart-item class="detail__item" *ngFor="let items of cart; trackBy:trackByFn" [item]="items" ></app-cart-item>
       </div>
-      <button class="info__btn"  mat-raised-button color="primary" (click)="isFormActive=true" *ngIf="!isFormActive"> place your order</button>
+      <button class="info__btn"  mat-raised-button color="primary" (click)="modal.changeModalOrder()" *ngIf="!modal.isActiveModalOrder"> place your order</button>
     </div>
 
-    <app-form-order-information *ngIf="isFormActive"></app-form-order-information>
+    <app-form-order-information *ngIf="modal.isActiveModalOrder"></app-form-order-information>
   </div>
   <ng-template #empty >
     <div class="empty">

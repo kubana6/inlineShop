@@ -26,3 +26,13 @@ export interface IAuthValue {
   providerId: string;
   uid: string;
 }
+
+export interface IGoods {
+  img:string;
+  model:string;
+  name:string;
+  price:string;
+  id?:string;
+  amount:string;
+
+}

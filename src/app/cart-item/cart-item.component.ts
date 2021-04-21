@@ -1,9 +1,8 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {CrudService} from '../services/crud.service';
-import {ICart, IUser} from '../types';
+import {ICart, IGoods, IUser} from '../types';
 import {StorageService} from '../services/storage.service';
 import {Subscription} from 'rxjs';
-import {Target} from '@angular/compiler';
 
 @Component({
   selector: 'app-cart-item',
@@ -22,8 +21,11 @@ export class CartItemComponent implements OnInit, OnDestroy {
   @Input() item: ICart;
 
   ngOnInit(): void {
-    this.getProductData = this.crud.getObjectByRef('smartphones', this.item.id).subscribe(value => this.product = value);
-    this.storage.user$.subscribe(value => this.user = value);
+    this.getProductData = this.crud.getObjectByRef('smartphones', this.item.id).subscribe((value:IGoods) => {
+      this.storage.cartProduct = {...value, id: this.item.id};
+      this.product = value;
+    });
+    this.storage.user$.subscribe((value: IUser) => this.user = value);
   }
 
   public delete() {
@@ -39,7 +41,7 @@ export class CartItemComponent implements OnInit, OnDestroy {
   public updateAmount(targetValue: EventTarget) {
     // как правильно затипизировать евент
     const buttonValue = targetValue['textContent'];
-    if (this.item.amount === '1' && buttonValue === '-') {
+    if (this.item.amount === '1' && buttonValue === 'remove') {
       this.delete();
       return;
     }

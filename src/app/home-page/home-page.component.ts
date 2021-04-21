@@ -11,10 +11,9 @@ export class HomePageComponent implements OnInit {
   constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
-     this.storageService.books$.subscribe()
+
   }
   getData () {
-    console.log(this.storageService.books)
   }
 
 }
