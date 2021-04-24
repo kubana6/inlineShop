@@ -10,7 +10,10 @@ export interface IUser {
 
 export interface ICart {
   id: string;
+  name: string;
   amount: string;
+  totalOrder: string;
+  price: string;
 }
 
 export interface IOrders {

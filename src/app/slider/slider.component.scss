@@ -1,24 +1,24 @@
 .general__slider {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    .slider__imeg {
-        max-width: 1200px;
-        width: 100%;
-    }
+  .slider__imeg {
+    max-width: 1200px;
+    width: 100%;
+  }
 
-    .slider__arrow-left {
-        position: relative;
-        left: 60px;
-        &:hover {
-            transform: scale(1.2);
-        }
+  .slider__arrow-left {
+    position: relative;
+    left: 60px;
+    &:hover {
+      transform: scale(1.2);
     }
-    .slider__arrow-right {
-        position: relative;
-        right: 60px;
-        &:hover {
-            transform: scale(1.2);
-        }
+  }
+  .slider__arrow-right {
+    position: relative;
+    right: 60px;
+    &:hover {
+      transform: scale(1.2);
     }
+  }
 }

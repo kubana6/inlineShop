@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IGoods, IUser } from '../types';
+import { ICart, IGoods, IUser } from '../types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  private _cartProduct: IGoods[] = [];
+  public cartProduct$: BehaviorSubject<IGoods[] | null> = new BehaviorSubject<any>(null);
 
   public user$: BehaviorSubject<IUser | null> = new BehaviorSubject<any>(null);
+
+  private _cartProduct: IGoods[] = [];
 
   private _user: IUser | null;
 
@@ -22,6 +24,7 @@ export class StorageService {
 
   public set cartProduct(_cartProduct: any) {
     this._cartProduct.push(_cartProduct);
+    this.cartProduct$.next(this._cartProduct);
   }
 
   public get user(): any {

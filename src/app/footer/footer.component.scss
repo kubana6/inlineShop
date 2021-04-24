@@ -68,3 +68,8 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .contacts__tel {
+    display: none;
+  }
+}

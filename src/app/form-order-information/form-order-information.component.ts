@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { switchMap, take, tap } from 'rxjs/operators';
+import { retry, switchMap, take, tap } from 'rxjs/operators';
 import { StorageService } from '../services/storage.service';
 import { CrudService } from '../services/crud.service';
 import { ICart, IGoods, IUser } from '../types';
@@ -19,13 +19,9 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
 
   private postOrderData: Subscription;
 
-  private updateUserInformation: Subscription;
-
-  private orderId: string;
-
   public formOrder: FormGroup;
 
-  public informationOrder: IGoods[] = [];
+  public carts: ICart[];
 
   public totalPrice = 0;
 
@@ -40,13 +36,8 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
     this.initForm();
     this.getUserData = this.storage.user$.subscribe((value) => {
       this.userData = value;
+      this.carts = value.cart;
     });
-    this.informationOrder = this.storage.cartProduct.reduce((acc: IGoods[], rec: IGoods) => {
-      const userCart = this.userData.cart.filter((cart) => cart.id === rec.id);
-      this.totalPrice += +userCart[0].amount * +rec.price;
-      const data = { amount: userCart[0].amount, ...rec };
-      return [...acc, data];
-    }, []);
   }
 
   ngOnDestroy(): void {

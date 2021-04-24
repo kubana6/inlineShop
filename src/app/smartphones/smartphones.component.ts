@@ -53,17 +53,21 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
     this.getData.unsubscribe();
   }
 
-  public buy(id: string): void {
-    const currentBuy = this.user.cart.filter((element) => element.id === id);
+  public buy(product: IProducts): void {
+    const currentBuy = this.user.cart.filter((element) => element.id === product.id);
     const cart =
       currentBuy.length > 0
         ? this.user.cart.map((order) => {
-            if (order.id === id) {
+            if (order.id === product.id) {
               order.amount = (+order.amount + 1).toString();
+              order.totalOrder = (+order.totalOrder + +product.price).toString();
             }
             return order;
           })
-        : [...this.user.cart, { id, amount: '1' }];
+        : [
+            ...this.user.cart,
+            { id: product.id, amount: '1', totalOrder: product.price, price: product.price, name: product.name },
+          ];
 
     this.service.updateObject('users', this.user.id, { cart }, true).subscribe((value) => {});
   }

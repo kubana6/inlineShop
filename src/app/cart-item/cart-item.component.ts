@@ -22,7 +22,6 @@ export class CartItemComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getProductData = this.crud.getObjectByRef('smartphones', this.item.id).subscribe((value: IGoods) => {
-      this.storage.cartProduct = { ...value, id: this.item.id };
       this.product = value;
     });
     this.storage.user$.subscribe((value: IUser) => {
@@ -30,18 +29,17 @@ export class CartItemComponent implements OnInit, OnDestroy {
     });
   }
 
-  public delete() {
+  public delete(): void {
     const { id, cart } = this.user;
     const newCart = cart.filter((element) => element.id !== this.item.id);
     this.crud.updateObject('users', id, { cart: newCart }, true);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.getProductData.unsubscribe();
   }
 
-  public updateAmount(type: string) {
-    // как правильно затипизировать евент
+  public updateAmount(type: string): void {
     if (this.item.amount === '1' && type === 'remove') {
       this.delete();
       return;

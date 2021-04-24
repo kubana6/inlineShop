@@ -99,7 +99,8 @@
   <mat-card>
     <mat-card-title> <span>Order</span><span>Change</span> </mat-card-title>
     <mat-card-content>
-      <div *ngFor="let product of informationOrder" class="info__order">
+      <!--      <app-product-information *ngFor="let product of carts" [product]="product" class="list__order"></app-product-information>-->
+      <div *ngFor="let product of carts" class="info__order">
         <span class="order__product-name">{{ product.name }}</span
         ><span>{{ product.amount }}</span> <span>{{ +product.amount * +product.price }}</span>
       </div>

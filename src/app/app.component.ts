@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   public isActive = this.modalAuth.isActiveWindow;
 
   ngOnInit(): void {
-    this.storageService.authData$.pipe().subscribe((value) => {
+    this.storageService.authData$.subscribe((value) => {
       this.authValue = value;
     });
 

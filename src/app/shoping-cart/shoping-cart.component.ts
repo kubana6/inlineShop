@@ -35,8 +35,8 @@ export class ShopingCartComponent implements OnInit, OnDestroy {
     });
   }
 
-  public trackByFn(index, item) {
-    return item.id; // уникальный идентификатор, соответствующий элементу
+  public trackByFn(index, item): string {
+    return item.id;
   }
 
   ngOnDestroy(): void {
