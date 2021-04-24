@@ -6,20 +6,18 @@ import { ModalWindowService } from '../services/modal-window.service';
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
-  styleUrls: ['./authorization.component.scss']
+  styleUrls: ['./authorization.component.scss'],
 })
-export class AuthorizationComponent implements OnInit {
-  constructor(private router: Router, private authService: AuthserviceService, private modal: ModalWindowService) { }
-  ngOnInit(): void {
-  }
-  public goTo() {
-    this.authService.googleSing().subscribe(value => {
-      this.modal.changeAuthWindow()
-    })
+export class AuthorizationComponent {
+  constructor(private router: Router, private authService: AuthserviceService, private modal: ModalWindowService) {}
+
+  public goTo(): void {
+    this.authService.googleSing().subscribe(() => {
+      this.modal.changeAuthWindow();
+    });
   }
 
-  public changeModal(event: MouseEvent) {
-    this.modal.changeAuthWindow()
+  public changeModal(): void {
+    this.modal.changeAuthWindow();
   }
-
 }

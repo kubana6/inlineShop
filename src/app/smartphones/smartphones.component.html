@@ -1,16 +1,15 @@
 <div class="catalog">
-  <h2 class="name">{{typeProduct}}</h2>
+  <h2 class="name">{{ typeProduct }}</h2>
   <div class="products">
     <mat-card class="product" *ngFor="let product of products; trackBy: trackByFn">
-      <img  mat-card-image [src]="product.img" alt="">
+      <img mat-card-image [src]="product.img" alt="" />
       <mat-card-content class="info">
-        <p class="name">{{product.name}}</p>
-        <p class="cost">{{product.price}}$</p>
+        <p class="name">{{ product.name }}</p>
+        <p class="cost">{{ product.price }}$</p>
       </mat-card-content>
       <mat-card-actions>
         <button class="product__buy" mat-button (click)="buy(product.id)">Buy</button>
       </mat-card-actions>
-
     </mat-card>
   </div>
 </div>

@@ -1,13 +1,13 @@
-<mat-toolbar class='header__container' color="primary">
+<mat-toolbar class="header__container" color="primary">
   <div class="container__menu">
-    <button mat-icon-button >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Menu</span>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="onToggleSideNav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Menu</span>
+    </mat-toolbar>
   </div>
-
-
-  <div class='container__user-information'>
+  <div class="container__user-information">
     <app-log-in></app-log-in>
     <app-cart></app-cart>
   </div>

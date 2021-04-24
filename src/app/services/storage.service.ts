@@ -1,27 +1,27 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
-import {IGoods, IUser} from '../types';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { IGoods, IUser } from '../types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
-  private _cartProduct: IGoods[]=[];
+  private _cartProduct: IGoods[] = [];
+
   public user$: BehaviorSubject<IUser | null> = new BehaviorSubject<any>(null);
+
   private _user: IUser | null;
 
   public authData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  private _authData: any;
 
-  constructor() {
-  }
+  private _authData: any;
 
   public get cartProduct(): any {
     return this._cartProduct;
   }
 
-  public set cartProduct(_cartProduct:any) {
-    this._cartProduct.push(_cartProduct)
+  public set cartProduct(_cartProduct: any) {
+    this._cartProduct.push(_cartProduct);
   }
 
   public get user(): any {

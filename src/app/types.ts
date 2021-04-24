@@ -6,7 +6,6 @@ export interface IUser {
   email: string;
   photo: string;
   orders: IOrders[];
-
 }
 
 export interface ICart {
@@ -21,18 +20,17 @@ export interface IOrders {
 export interface IAuthValue {
   displayName: string;
   email: string;
-  phoneNumber: null| string;
+  phoneNumber: null | string;
   photoURL: string;
   providerId: string;
   uid: string;
 }
 
 export interface IGoods {
-  img:string;
-  model:string;
-  name:string;
-  price:string;
-  id?:string;
-  amount:string;
-
+  img: string;
+  model: string;
+  name: string;
+  price: string;
+  id?: string;
+  amount: string;
 }

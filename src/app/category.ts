@@ -1,5 +1,5 @@
 export interface ICategory {
-    name:string;
-    src:string;
-    path?:string
+  name: string;
+  src: string;
+  path?: string;
 }
