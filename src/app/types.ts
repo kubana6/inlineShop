@@ -20,6 +20,7 @@ export interface IOrders {
   id: string;
   date: string;
 }
+
 export interface IAuthValue {
   displayName: string;
   email: string;
@@ -36,4 +37,27 @@ export interface IGoods {
   price: string;
   id?: string;
   amount: string;
+}
+
+export interface ICharacteristic {
+  productId: string;
+  main_memory: string;
+  camera: string[];
+  flash_memory: string;
+  img: string;
+  model: string;
+  name: string;
+  operating_system: string;
+  operating_system_version: string;
+  screen_resolution: string;
+  screen_size: string;
+  type: string;
+}
+export interface IProducts {
+  img: string;
+  name: string;
+  model: string;
+  id: string;
+  price: string;
+  characteristic: string;
 }

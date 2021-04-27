@@ -54,7 +54,17 @@ export class AppComponent implements OnInit {
         'Изменил форму доставки, добавил в форму информацию о заказе',
         'https://github.com/kubana6/onlineShop/commit/55f21a6857581b3c9b470a38c21f8c2fdd0034c5',
       ],
-      ['24.04', 'Сделал меню, убрал ошибки линтера, добавил stylelint'],
+      [
+        '24.04',
+        'Сделал меню, убрал ошибки линтера, добавил stylelint',
+        'https://github.com/kubana6/onlineShop/commit/311a9deacace8f752c6af05648d9abeb6ce6ce9b',
+      ],
+      [
+        '25.04',
+        'Пофиксил баг в форме заказа',
+        'https://github.com/kubana6/onlineShop/commit/d124284b9b6f880d0f3f21b9c4a75211c0416ad6',
+      ],
+      ['26.04', 'Сделал страницу с характеристиками'],
     ]);
   }
 

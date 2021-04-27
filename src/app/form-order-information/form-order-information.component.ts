@@ -37,6 +37,10 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
     this.getUserData = this.storage.user$.subscribe((value) => {
       this.userData = value;
       this.carts = value.cart;
+
+      this.totalPrice = value.cart.reduce((acc: number, rec: ICart) => {
+        return acc + +rec.totalOrder;
+      }, 0);
     });
   }
 

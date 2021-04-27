@@ -50,11 +50,13 @@ export class CartItemComponent implements OnInit, OnDestroy {
           case 'remove': {
             const data = { ...value };
             data.amount = (+value.amount - 1).toString();
+            data.totalOrder = (+data.totalOrder - +data.price).toString();
             return data;
           }
           case 'add': {
             const data = { ...value };
             data.amount = (+value.amount + 1).toString();
+            data.totalOrder = (+data.totalOrder + +data.price).toString();
             return data;
           }
           default: {

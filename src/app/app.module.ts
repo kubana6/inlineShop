@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -37,6 +39,8 @@ import { SmartphonesComponent } from './smartphones/smartphones.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { FormOrderInformationComponent } from './form-order-information/form-order-information.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { CharacteristicsComponent } from './characteristics/characteristics.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,8 @@ import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
     CartItemComponent,
     FormOrderInformationComponent,
     SidenavListComponent,
+    CharacteristicsComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +84,7 @@ import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

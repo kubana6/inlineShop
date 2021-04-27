@@ -4,15 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { CrudService } from '../services/crud.service';
 import { StorageService } from '../services/storage.service';
-import { ICart, IUser } from '../types';
-
-export interface IProducts {
-  img: string;
-  name: string;
-  model: string;
-  id: string;
-  price: string;
-}
+import { IProducts, IUser } from '../types';
 
 @Component({
   selector: 'app-smartphones',
@@ -35,9 +27,6 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
       this.typeProduct = value;
       this.updateData();
     });
-    // this.getData = this.service.getData('smartphones').subscribe((value: IProducts[]) => {
-    //   this.products = value;
-    // });
     this.storage.user$.subscribe((value: IUser) => {
       this.user = value;
     });
@@ -54,22 +43,23 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
   }
 
   public buy(product: IProducts): void {
-    const currentBuy = this.user.cart.filter((element) => element.id === product.id);
-    const cart =
-      currentBuy.length > 0
-        ? this.user.cart.map((order) => {
-            if (order.id === product.id) {
-              order.amount = (+order.amount + 1).toString();
-              order.totalOrder = (+order.totalOrder + +product.price).toString();
-            }
-            return order;
-          })
-        : [
-            ...this.user.cart,
-            { id: product.id, amount: '1', totalOrder: product.price, price: product.price, name: product.name },
-          ];
-
-    this.service.updateObject('users', this.user.id, { cart }, true).subscribe((value) => {});
+    this.storage.buy(product);
+    // const currentBuy = this.user.cart.filter((element) => element.id === product.id);
+    // const cart =
+    //   currentBuy.length > 0
+    //     ? this.user.cart.map((order) => {
+    //         if (order.id === product.id) {
+    //           order.amount = (+order.amount + 1).toString();
+    //           order.totalOrder = (+order.totalOrder + +product.price).toString();
+    //         }
+    //         return order;
+    //       })
+    //     : [
+    //         ...this.user.cart,
+    //         { id: product.id, amount: '1', totalOrder: product.price, price: product.price, name: product.name },
+    //       ];
+    //
+    // this.service.updateObject('users', this.user.id, { cart }, true).subscribe((value) => {});
   }
 
   public trackByFn(index, item) {
