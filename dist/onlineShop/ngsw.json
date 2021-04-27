@@ -1,0 +1,109 @@
+{
+  "configVersion": 1,
+  "timestamp": 1619540472121,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/4.885a5f95de82c7e61848.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.1bc1a83e6cfdfeb56d4d.js",
+        "/manifest.webmanifest",
+        "/polyfills.d10292d1c9110b833dd8.js",
+        "/runtime.8f3e9e24eb828e27518a.js",
+        "/styles.597a0b97547aab7057a6.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/0d09fb0af3fca468d2b68c6528a16d71.jpeg",
+        "/assets/img/9dffcecbd2d8c7ffd77baec20379646c.jpeg",
+        "/assets/img/Samsung Glaxy M21s.jpg",
+        "/assets/img/arrow-left.svg",
+        "/assets/img/arrow-right.svg",
+        "/assets/img/cart.svg",
+        "/assets/img/cart1.svg",
+        "/assets/img/facebook.svg",
+        "/assets/img/googleLogo.svg",
+        "/assets/img/instagram.svg",
+        "/assets/img/laptops.png",
+        "/assets/img/logo.svg",
+        "/assets/img/vk.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/4.885a5f95de82c7e61848.js": "87af37efc05c1fad6b53e52dee3cfa2a8fdc7bdd",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/img/0d09fb0af3fca468d2b68c6528a16d71.jpeg": "14f10a26ba8cef97ecc75cb7c8260f1b8d81ad07",
+    "/assets/img/9dffcecbd2d8c7ffd77baec20379646c.jpeg": "6b5f7376b42e2c95e4582747bcb5b1404ca61333",
+    "/assets/img/Samsung Glaxy M21s.jpg": "4cd9937059c30b52537d09beb4d7fdfec6c0a303",
+    "/assets/img/arrow-left.svg": "0e16030d6182d22b34e52d7a408a55b11c1d82c0",
+    "/assets/img/arrow-right.svg": "215e45bc345fc80c275625fbaf7c4eb64026645f",
+    "/assets/img/cart.svg": "86a50ddfc0c66f407131045d7ec2cd6b5541c1e7",
+    "/assets/img/cart1.svg": "db269a632700d26f2ab738e0bf6d1a7147f2aab7",
+    "/assets/img/facebook.svg": "32df5aacd03e9eb0f45056176af8ed067470e0e9",
+    "/assets/img/googleLogo.svg": "de83f281d2fe3e87c9b559d14cc7ecfb6518941e",
+    "/assets/img/instagram.svg": "e3ee133cd096ea977d93453f9c7328e54be1ca81",
+    "/assets/img/laptops.png": "935148117b40af2f5d74abf4def672350c649f17",
+    "/assets/img/logo.svg": "400cd59c342fc3b93ee2e937096bc6535b2413cf",
+    "/assets/img/vk.svg": "17ced829727756d8f67502222fe6163dc2f547f2",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "432de814d84c059ed022e867f7f0cfc21e940a09",
+    "/main.1bc1a83e6cfdfeb56d4d.js": "5afb744cacece5b793bf69d25ade913a2afe1af5",
+    "/manifest.webmanifest": "1fc293f909f520f0bc4ec2ae4e3030ed3442e240",
+    "/polyfills.d10292d1c9110b833dd8.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/runtime.8f3e9e24eb828e27518a.js": "cc6f3c99d626ce383d8ed9b196facceceeb8f273",
+    "/styles.597a0b97547aab7057a6.css": "5d11d4d7e9bf0b51ee04dea209d59e2b5319fd89"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

@@ -1,5 +1,5 @@
 <div class="catalog">
-  <h2 class="name">{{ typeProduct }}</h2>
+  <h2 class="name">{{ typeProduct | titlecase }}</h2>
   <div class="products">
     <mat-card class="product" *ngFor="let product of products; trackBy: trackByFn">
       <a class="product__link-img" [routerLink]="[product.characteristic]">
@@ -7,7 +7,7 @@
       </a>
       <mat-card-content class="info">
         <a [routerLink]="[product.characteristic]" class="info__name">{{ product.name }}</a>
-        <p class="cost">{{ product.price }}$</p>
+        <p class="cost">{{ product.price | currency}}</p>
       </mat-card-content>
       <mat-card-actions>
         <button class="product__buy" mat-button (click)="buy(product)">Buy</button>

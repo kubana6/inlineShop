@@ -46,11 +46,10 @@ export class TreeOrdersComponent implements OnInit {
 
   constructor(private crud: CrudService, private storage: StorageService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userId = this.storage.user.id;
 
     this.crud.findField('orders', 'userId', this.userId).subscribe((value: IDetailsOrders[]) => {
-      console.log(value);
       this.detailOrders = value;
     });
   }
