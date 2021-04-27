@@ -19,6 +19,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +43,8 @@ import { FormOrderInformationComponent } from './form-order-information/form-ord
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { CharacteristicsComponent } from './characteristics/characteristics.component';
 import { DetailsComponent } from './details/details.component';
+import { AccountComponent } from './account/account.component';
+import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,8 @@ import { DetailsComponent } from './details/details.component';
     SidenavListComponent,
     CharacteristicsComponent,
     DetailsComponent,
+    AccountComponent,
+    TreeOrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +91,8 @@ import { DetailsComponent } from './details/details.component';
     MatSidenavModule,
     MatListModule,
     MatTabsModule,
+    MatTreeModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

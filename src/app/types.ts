@@ -6,6 +6,9 @@ export interface IUser {
   email: string;
   photo: string;
   orders: IOrders[];
+  account_created: string;
+  balance: string;
+  name: string;
 }
 
 export interface ICart {
@@ -14,6 +17,7 @@ export interface ICart {
   amount: string;
   totalOrder: string;
   price: string;
+  img: string;
 }
 
 export interface IOrders {
@@ -53,6 +57,7 @@ export interface ICharacteristic {
   screen_size: string;
   type: string;
 }
+
 export interface IProducts {
   img: string;
   name: string;
@@ -60,4 +65,21 @@ export interface IProducts {
   id: string;
   price: string;
   characteristic: string;
+}
+
+export interface IDetailsOrders {
+  apartment: string;
+  city: string;
+  corps: string;
+  date: string;
+  email: string;
+  entrance: string;
+  floor: string;
+  fullName: string;
+  house: string;
+  order: ICart[];
+  phone: string;
+  street: string;
+  userId: string;
+  img: string;
 }

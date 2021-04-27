@@ -1,0 +1,38 @@
+.number__order {
+  font-weight: 500;
+  span {
+    margin-left: 10px;
+  }
+}
+
+.position {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.order-img {
+  width: 50px;
+}
+.position__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .details__info {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .item {
+      width: 30%;
+      text-align: left;
+      padding-left: 10px;
+    }
+    .value {
+      width: 70%;
+      text-align: left;
+    }
+  }
+}

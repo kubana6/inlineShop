@@ -10,8 +10,8 @@
         <mat-icon>close</mat-icon>
       </button>
     </div>
-
     <h1>Write your Information</h1>
+    <h2 *ngIf="moneyIsTight" class="error">you haven't got enough money</h2>
     <h3>Address</h3>
     <form [formGroup]="formOrder" class="form-control" (submit)="onSubmit()">
       <mat-form-field>
@@ -102,15 +102,17 @@
       <!--      <app-product-information *ngFor="let product of carts" [product]="product" class="list__order"></app-product-information>-->
       <div *ngFor="let product of carts" class="info__order">
         <span class="order__product-name">{{ product.name }}</span
-        ><span>{{ product.amount }}</span> <span>{{ +product.amount * +product.price }}</span>
+        ><span>{{ product.amount }}</span> <span>{{ +product.amount * +product.price | currency }}</span>
       </div>
     </mat-card-content>
     <hr />
     <mat-card-footer>
-      <div class="delivery"><span>Delivery</span><span>0$</span></div>
+      <div class="delivery">
+        <span>Delivery</span><span>{{ 0 | currency }}</span>
+      </div>
       <div class="total-price">
         <span>Total</span>
-        <span>{{ totalPrice }}$</span>
+        <span>{{ totalPrice | currency }}</span>
       </div>
     </mat-card-footer>
   </mat-card>

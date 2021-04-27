@@ -1,0 +1,67 @@
+.account {
+  width: 98%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  .account__info {
+    width: 80%;
+    max-width: 1200px;
+    min-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .account__user-information {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    img {
+      margin-right: 20px;
+    }
+
+    .user-information__details {
+      width: 375px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .details__info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item {
+          width: 30%;
+          text-align: left;
+        }
+        .value {
+          width: 70%;
+          text-align: left;
+        }
+      }
+    }
+  }
+  .info__orders {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .account__user-information {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .user-information__details {
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+  }
+}

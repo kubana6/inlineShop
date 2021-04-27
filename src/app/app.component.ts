@@ -64,7 +64,8 @@ export class AppComponent implements OnInit {
         'Пофиксил баг в форме заказа',
         'https://github.com/kubana6/onlineShop/commit/d124284b9b6f880d0f3f21b9c4a75211c0416ad6',
       ],
-      ['26.04', 'Сделал страницу с характеристиками'],
+      ['26.04', 'Сделал страницу с характеристиками','https://github.com/kubana6/onlineShop/commit/ff775ae1e7c6a73f4e32efbdace439bb9f06837e'],
+      ['27.04', 'Сделал страницу личного кабинета, добавил баланс.'],
     ]);
   }
 
@@ -73,7 +74,7 @@ export class AppComponent implements OnInit {
       this.getFindFeld = this.crudService
         .findField('users', 'uid', this.authValue.uid)
         .pipe(
-          map((userValue) => {
+          map((userValue: IUser[]) => {
             if (userValue.length < 1) {
               const data = {
                 name: this.authValue.displayName,
@@ -83,6 +84,8 @@ export class AppComponent implements OnInit {
                 email: this.authValue.email,
                 photo: this.authValue.photoURL,
                 orders: [],
+                account_created: new Date().toString(),
+                balance: '10000',
               };
               this.crudService.createEntity('users', data);
               return data;

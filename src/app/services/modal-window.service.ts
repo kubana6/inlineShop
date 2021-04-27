@@ -10,15 +10,15 @@ export class ModalWindowService {
 
   public isActiveModalOrder = false;
 
-  public changeAuthWindow() {
+  public changeAuthWindow(): void {
     this.isActiveWindow = !this.isActiveWindow;
   }
 
-  public changeLogin(value: boolean) {
+  public changeLogin(value: boolean): void {
     this.isLogin = value;
   }
 
-  public changeModalOrder() {
+  public changeModalOrder(): void {
     this.isActiveModalOrder = !this.isActiveModalOrder;
   }
 }

@@ -35,6 +35,7 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
   public updateData(): void {
     this.getData = this.service.getData(this.typeProduct).subscribe((value: IProducts[]) => {
       this.products = value;
+      this.storage.currentProducts = value;
     });
   }
 

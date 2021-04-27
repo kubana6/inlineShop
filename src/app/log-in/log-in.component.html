@@ -13,5 +13,8 @@
     <button mat-icon-button matTooltip="LogOut" (click)="logOut()">
       <mat-icon>logout</mat-icon>
     </button>
+    <a [routerLink]="['account']" matTooltip="My Account">
+      <button mat-icon-button><mat-icon>account_circle</mat-icon></button></a
+    >
   </div>
 </ng-template>

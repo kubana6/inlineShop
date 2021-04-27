@@ -25,6 +25,8 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
 
   public totalPrice = 0;
 
+  public moneyIsTight: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private storage: StorageService,
@@ -49,6 +51,10 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
+    if (+this.userData.balance < this.totalPrice) {
+      this.moneyIsTight = true;
+      return;
+    }
     if (this.formOrder.valid) {
       const date = new Date().toString();
       const formData = {
@@ -64,6 +70,7 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
           switchMap((id) => {
             if (id) {
               const updateDataUser = {
+                balance: (+this.userData.balance - this.totalPrice).toString(),
                 cart: [],
                 orders: [
                   ...this.userData?.orders,

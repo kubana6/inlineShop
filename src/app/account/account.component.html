@@ -1,0 +1,37 @@
+<div class="account">
+  <h1>My Account</h1>
+  <div class="account__info">
+    <div class="account__user-information" *ngIf="userInformation?.id">
+      <img [src]="userInformation.photo" alt="" />
+      <div class="user-information__details">
+        <div class="details__info">
+          <div class="item">
+            <p>Full name</p>
+          </div>
+          <div class="value">
+            <p>{{ userInformation.name }}</p>
+          </div>
+        </div>
+        <div class="details__info">
+          <div class="item">
+            <p>Email</p>
+          </div>
+          <div class="value">
+            <p>{{ userInformation.email }}</p>
+          </div>
+        </div>
+        <div class="details__info">
+          <div class="item">
+            <p>My Balance</p>
+          </div>
+          <div class="value">
+            <p>{{ userInformation.balance | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info__orders">
+      <app-tree-orders *ngIf="userInformation?.orders" [orders]="userInformation.orders"></app-tree-orders>
+    </div>
+  </div>
+</div>

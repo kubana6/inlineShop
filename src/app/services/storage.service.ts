@@ -25,7 +25,7 @@ export class StorageService {
 
   private _authData: any;
 
-  public get currentProduct() {
+  public get currentProducts() {
     return this._currentProducts;
   }
 
@@ -80,7 +80,14 @@ export class StorageService {
           })
         : [
             ...carts,
-            { id: product.id, amount: '1', totalOrder: product.price, price: product.price, name: product.name },
+            {
+              id: product.id,
+              amount: '1',
+              totalOrder: product.price,
+              price: product.price,
+              name: product.name,
+              img: product.img,
+            },
           ];
     this.crud.updateObject('users', this.user.id, { cart }, true).subscribe((value) => {});
   }

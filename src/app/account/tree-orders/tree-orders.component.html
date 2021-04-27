@@ -1,0 +1,42 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title> Your Orders </mat-panel-title>
+      <mat-panel-description> Сlick to see orders </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div *ngFor="let order of detailOrders; index as i">
+      <p class="number__order">
+        Order №{{ i + 1 }} <span>{{ order.date | date: "medium" }}</span>
+      </p>
+      <div class="position" *ngFor="let position of order.order">
+        <img class="order-img" [src]="position.img" alt="" />
+        <div class="position__details">
+          <div class="details__info">
+            <div class="item"><span>Name</span></div>
+            <div class="value">
+              <span>{{ position.name }}</span>
+            </div>
+          </div>
+          <div class="details__info">
+            <div class="item"><span>Cost</span></div>
+            <div class="value">
+              <span>{{ position.price | currency }}</span>
+            </div>
+          </div>
+          <div class="details__info">
+            <div class="item"><span>Amount</span></div>
+            <div class="value">
+              <span>{{ position.amount }}</span>
+            </div>
+          </div>
+          <div class="details__info">
+            <div class="item"><span>Total</span></div>
+            <div class="value">
+              <span>{{ position.totalOrder | currency }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
