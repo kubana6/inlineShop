@@ -64,7 +64,11 @@ export class AppComponent implements OnInit {
         'Пофиксил баг в форме заказа',
         'https://github.com/kubana6/onlineShop/commit/d124284b9b6f880d0f3f21b9c4a75211c0416ad6',
       ],
-      ['26.04', 'Сделал страницу с характеристиками','https://github.com/kubana6/onlineShop/commit/ff775ae1e7c6a73f4e32efbdace439bb9f06837e'],
+      [
+        '26.04',
+        'Сделал страницу с характеристиками',
+        'https://github.com/kubana6/onlineShop/commit/ff775ae1e7c6a73f4e32efbdace439bb9f06837e',
+      ],
       ['27.04', 'Сделал страницу личного кабинета, добавил баланс.'],
     ]);
   }

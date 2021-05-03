@@ -25,7 +25,9 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
   public carts: ICart[];
 
   public totalPrice = 0;
+
   public isInputDisabled = false;
+
   public moneyIsTight: boolean = false;
 
   constructor(

@@ -22,8 +22,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +47,6 @@ import { CharacteristicsComponent } from './characteristics/characteristics.comp
 import { DetailsComponent } from './details/details.component';
 import { AccountComponent } from './account/account.component';
 import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component';
-
 
 @NgModule({
   declarations: [
@@ -101,7 +99,7 @@ import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     MatCheckboxModule,
   ],
