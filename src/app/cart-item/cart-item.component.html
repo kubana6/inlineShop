@@ -2,7 +2,7 @@
   <img mat-card-image [src]="product.img" class="product__imeg" alt="" />
   <mat-card-content class="product__info">
     <p class="info__name">{{ product.name }}</p>
-    <p>{{ product.price }}</p>
+    <p>{{ product.price | currency }}</p>
     <div class="info__count">
       <button mat-button color="primary" (click)="updateAmount('remove')">
         <mat-icon>remove</mat-icon>
@@ -12,7 +12,7 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-    <p>{{ +product.price * +item.amount }}$</p>
+    <p>{{ +product.price * +item.amount | currency }}</p>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="delete()" mat-fab color="primary" matTooltip="delete">

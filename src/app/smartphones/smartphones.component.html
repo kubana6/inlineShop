@@ -2,10 +2,12 @@
   <h2 class="name">{{ typeProduct | titlecase }}</h2>
   <div class="products">
     <mat-card class="product" *ngFor="let product of products; trackBy: trackByFn">
+      <mat-checkbox class="example-margin">C</mat-checkbox>
       <a class="product__link-img" [routerLink]="[product.characteristic]">
         <img mat-card-image [src]="product.img" alt="" />
       </a>
       <mat-card-content class="info">
+
         <a [routerLink]="[product.characteristic]" class="info__name">{{ product.name }}</a>
         <p class="cost">{{ product.price | currency}}</p>
       </mat-card-content>

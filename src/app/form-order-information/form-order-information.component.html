@@ -19,55 +19,69 @@
         <input matInput type="text" id="city" formControlName="city" />
         <mat-error *ngIf="isControlInvalid('city')">
           <small class="error" *ngIf="errorsField('city').required"> field must not be empty </small>
+          <small class="error" *ngIf="errorsField('city').minlength && !errorsField('city').onlyString"
+            >field must contain at least 3 letters <br />actual length:{{
+              errorsField("city").minlength.actualLength
+            }}</small
+          >
+          <small class="error" *ngIf="errorsField('city').onlyString"> field must be only string </small>
         </mat-error>
       </mat-form-field>
+      <br />
       <mat-form-field>
         <mat-label>Street</mat-label>
         <input matInput type="text" id="street" formControlName="street" />
         <mat-error *ngIf="isControlInvalid('street')">
           <small class="error" *ngIf="errorsField('street').required"> field must not be empty </small>
+          <small class="error" *ngIf="errorsField('street').minlength && !errorsField('street').onlyString"
+            >field must contain at least 3 letters <br />actual length:{{
+              errorsField("street").minlength.actualLength
+            }}</small
+          >
+          <small class="error" *ngIf="errorsField('street').onlyString"> field must be only string </small>
         </mat-error>
       </mat-form-field>
+      <br />
       <div class="form-control__information-house">
         <mat-form-field class="information-house__detail">
           <mat-label for="house">House</mat-label>
           <input matInput type="text" id="house" formControlName="house" />
+          <mat-error *ngIf="isControlInvalid('house')">
+            <small class="error" *ngIf="errorsField('house').required"> field must not be empty </small>
+            <small class="error" *ngIf="errorsField('house').onlyNumber"> field must be only number </small>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="information-house__detail">
           <mat-label for="corps">Corps</mat-label>
           <input matInput type="text" id="corps" formControlName="corps" />
-          <!--        <div *ngIf="isControlInvalid('corps')">-->
-          <!--          <small class="error" *ngIf="errorsField('corps').required">-->
-          <!--            field must not be empty-->
-          <!--          </small>-->
-          <!--        </div>-->
+          <mat-error *ngIf="isControlInvalid('corps')">
+            <small class="error" *ngIf="errorsField('corps').required"> field must not be empty </small>
+            <small class="error" *ngIf="errorsField('corps').onlyNumber"> field must be only number </small>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="information-house__detail">
           <mat-label for="entrance">Entr.</mat-label>
           <input matInput type="text" id="entrance" formControlName="entrance" />
-          <!--        <div *ngIf="isControlInvalid('entrance')">-->
-          <!--          <small class="error" *ngIf="errorsField('entrance').required">-->
-          <!--            field must not be empty-->
-          <!--          </small>-->
-          <!--        </div>-->
+          <mat-error *ngIf="isControlInvalid('entrance')">
+            <small class="error" *ngIf="errorsField('entrance').required"> field must not be empty </small>
+            <small class="error" *ngIf="errorsField('entrance').onlyNumber"> field must be only number </small>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="information-house__detail">
           <mat-label for="floor">Floor</mat-label>
           <input matInput type="text" id="floor" formControlName="floor" />
-          <!--        <div *ngIf="isControlInvalid('floor')">-->
-          <!--          <small class="error" *ngIf="errorsField('floor').required">-->
-          <!--            field must not be empty-->
-          <!--          </small>-->
-          <!--        </div>-->
+          <mat-error *ngIf="isControlInvalid('floor')">
+            <small class="error" *ngIf="errorsField('floor').required"> field must not be empty </small>
+            <small class="error" *ngIf="errorsField('floor').onlyNumber"> field must be only number </small>
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="information-house__detail">
           <mat-label for="apartment">Apart</mat-label>
           <input matInput type="text" id="apartment" formControlName="apartment" />
-          <!--        <div *ngIf="isControlInvalid('apartment')">-->
-          <!--          <small class="error" *ngIf="errorsField('apartment').required">-->
-          <!--            field must not be empty-->
-          <!--          </small>-->
-          <!--        </div>-->
+          <mat-error *ngIf="isControlInvalid('apartment')">
+            <small class="error" *ngIf="errorsField('apartment').required"> field must not be empty </small>
+            <small class="error" *ngIf="errorsField('apartment').onlyNumber"> field must be only number </small>
+          </mat-error>
         </mat-form-field>
       </div>
       <h3>Contact details</h3>
@@ -76,6 +90,12 @@
         <input matInput type="text" id="fullName" formControlName="fullName" />
         <mat-error *ngIf="isControlInvalid('fullName')">
           <small class="error" *ngIf="errorsField('fullName').required"> field must not be empty </small>
+          <small class="error" *ngIf="errorsField('fullName').minlength && !errorsField('fullName').onlyString"
+            >field must contain at least 3 letters <br />actual length:{{
+              errorsField("fullName").minlength.actualLength
+            }}</small
+          >
+          <small class="error" *ngIf="errorsField('fullName').onlyString"> field must be only string </small>
         </mat-error>
       </mat-form-field>
       <mat-form-field>
@@ -83,7 +103,7 @@
         <input matInput type="text" id="email" formControlName="email" />
         <mat-error *ngIf="isControlInvalid('email')">
           <small class="error" *ngIf="errorsField('email').required"> field must not be empty </small>
-          <mat-error class="error" *ngIf="errorsField('email').pattern"> invalid email </mat-error>
+          <mat-error class="error" *ngIf="errorsField('email').pattern"> invalid email</mat-error>
         </mat-error>
       </mat-form-field>
       <mat-form-field>
@@ -93,13 +113,12 @@
           <small class="error" *ngIf="errorsField('phone').required"> field must not be empty </small>
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="formOrder.invalid">Send</button>
+      <button mat-raised-button color="primary" [disabled]="formOrder.invalid || isInputDisabled">Send</button>
     </form>
   </div>
   <mat-card>
-    <mat-card-title> <span>Order</span><span>Change</span> </mat-card-title>
+    <mat-card-title><span>Order</span><span>Change</span></mat-card-title>
     <mat-card-content>
-      <!--      <app-product-information *ngFor="let product of carts" [product]="product" class="list__order"></app-product-information>-->
       <div *ngFor="let product of carts" class="info__order">
         <span class="order__product-name">{{ product.name }}</span
         ><span>{{ product.amount }}</span> <span>{{ +product.amount * +product.price | currency }}</span>

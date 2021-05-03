@@ -6,6 +6,7 @@ import { StorageService } from '../services/storage.service';
 import { CrudService } from '../services/crud.service';
 import { ICart, IGoods, IUser } from '../types';
 import { ModalWindowService } from '../services/modal-window.service';
+import { OrderValidators } from '../validators/order.validators';
 
 @Component({
   selector: 'app-form-order-information',
@@ -24,7 +25,7 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
   public carts: ICart[];
 
   public totalPrice = 0;
-
+  public isInputDisabled = false;
   public moneyIsTight: boolean = false;
 
   constructor(
@@ -51,8 +52,10 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
+    this.isInputDisabled = true;
     if (+this.userData.balance < this.totalPrice) {
       this.moneyIsTight = true;
+      this.isInputDisabled = false;
       return;
     }
     if (this.formOrder.valid) {
@@ -84,7 +87,10 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
             }
             return id;
           }),
-          tap(() => this.formOrder.reset()),
+          tap(() => {
+            this.formOrder.reset();
+            this.isInputDisabled = false;
+          }),
           take(1),
         )
         .subscribe();
@@ -105,40 +111,15 @@ export class FormOrderInformationComponent implements OnInit, OnDestroy {
     return control.errors;
   }
 
-  private initForm() {
+  private initForm(): void {
     this.formOrder = this.fb.group({
-      city: ['', [Validators.required]],
-      street: ['', [Validators.required]],
-      house: [
-        '',
-        [
-          // Validators.required,
-        ],
-      ],
-      corps: [
-        '',
-        [
-          // Validators.required,
-        ],
-      ],
-      entrance: [
-        '',
-        [
-          // Validators.required,
-        ],
-      ],
-      floor: [
-        '',
-        [
-          // Validators.required,
-        ],
-      ],
-      apartment: [
-        '',
-        [
-          // Validators.required,
-        ],
-      ],
+      city: ['', [Validators.required, Validators.minLength(3), OrderValidators.onlyString]],
+      street: ['', [Validators.required, Validators.minLength(3), OrderValidators.onlyString]],
+      house: ['', [Validators.required, OrderValidators.onlyNumber]],
+      corps: ['', [Validators.required, OrderValidators.onlyNumber]],
+      entrance: ['', [Validators.required, OrderValidators.onlyNumber]],
+      floor: ['', [Validators.required, OrderValidators.onlyNumber]],
+      apartment: ['', [Validators.required, OrderValidators.onlyNumber]],
       fullName: ['', [Validators.required]],
       email: [
         '',
