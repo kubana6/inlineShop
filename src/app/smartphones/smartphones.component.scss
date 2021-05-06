@@ -5,7 +5,18 @@
   justify-content: flex-start;
   flex-direction: column;
   align-content: center;
-
+  .compare {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2e3e4;
+    position: fixed;
+    bottom: 0px;
+    right: 50px;
+    text-decoration: none;
+  }
   .name {
     text-align: center;
     font-size: 20px;

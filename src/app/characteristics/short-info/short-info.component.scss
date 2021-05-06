@@ -1,0 +1,40 @@
+.info {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    margin-right: 20px;
+  }
+
+  .short-information {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mat-card {
+      display: flex;
+      flex-direction: column;
+
+      .mat-card-header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        .mat-card-subtitle {
+          display: inline;
+          margin: 0;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .info {
+    flex-direction: column;
+  }
+}

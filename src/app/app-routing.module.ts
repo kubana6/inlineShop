@@ -6,6 +6,7 @@ import { SmartphonesComponent } from './smartphones/smartphones.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { DetailsComponent } from './details/details.component';
 import { AccountComponent } from './account/account.component';
+import { ComparePageComponent } from './compare-page/compare-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'catalog/:product/:model', component: DetailsComponent },
   { path: 'cart', component: ShopingCartComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'compare', component: ComparePageComponent },
 ];
 
 @NgModule({

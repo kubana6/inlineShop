@@ -3,18 +3,25 @@ import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../services/crud.service';
 import { ICharacteristic, IProducts } from '../types';
 import { StorageService } from '../services/storage.service';
+import { SmartphoneCharacteristic } from '../constants';
 
 @Component({
   selector: 'app-characteristics',
   templateUrl: './characteristics.component.html',
   styleUrls: ['./characteristics.component.scss'],
 })
-export class CharacteristicsComponent {
+export class CharacteristicsComponent implements OnInit {
   @Input() public characteristic: ICharacteristic;
 
   @Input() public charactId: string;
+  public fieldCharacteristic: string[];
+  public objCharacteristic: {};
 
   constructor(private route: ActivatedRoute, private crud: CrudService, private storage: StorageService) {}
+  ngOnInit() {
+    this.objCharacteristic = SmartphoneCharacteristic;
+    this.fieldCharacteristic = Object.keys(SmartphoneCharacteristic);
+  }
 
   public buy(): void {
     this.crud

@@ -44,11 +44,11 @@ export interface IGoods {
 }
 
 export interface ICharacteristic {
-  productId: string;
+  productId?: string;
   main_memory: string;
   camera: string[];
   flash_memory: string;
-  img: string;
+  img?: string;
   model: string;
   name: string;
   operating_system: string;
@@ -56,6 +56,7 @@ export interface ICharacteristic {
   screen_resolution: string;
   screen_size: string;
   type: string;
+  feedback: IFeedBack;
 }
 
 export interface IProducts {
@@ -82,4 +83,20 @@ export interface IDetailsOrders {
   street: string;
   userId: string;
   img: string;
+}
+
+export interface IFeedBack {
+  count: number;
+  customers_feedback: ICustomersFeedback[];
+  rating: number;
+  sum: number;
+}
+
+export interface ICustomersFeedback {
+  date:string;
+  id:string;
+  name:string;
+  photo:string;
+  rating:number;
+  text:string;
 }

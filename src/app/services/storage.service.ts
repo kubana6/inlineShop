@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ICart, IGoods, IProducts, IUser } from '../types';
+import { IGoods, IProducts, IUser } from '../types';
 import { CrudService } from './crud.service';
+
+export interface ICompareProducts {
+  id: string;
+  characteristic: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +14,14 @@ import { CrudService } from './crud.service';
 export class StorageService {
   constructor(private crud: CrudService) {}
 
+  public compareProducts$: BehaviorSubject<ICompareProducts[] | null> = new BehaviorSubject<ICompareProducts[] | null>(
+    null,
+  );
   public cartProduct$: BehaviorSubject<IGoods[] | null> = new BehaviorSubject<IGoods[]>(null);
 
   public user$: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser>(null);
 
+  private _compareProducts: ICompareProducts[];
   private _cartProduct: IGoods[] = [];
 
   private _user: IUser | null;
@@ -62,8 +71,17 @@ export class StorageService {
   }
 
   public set clearData(obj: {}) {
-    this.authData = {};
-    this.user = {};
+    this.authData = obj;
+    this.user = obj;
+  }
+
+  public get compareProducts() {
+    return this._compareProducts;
+  }
+
+  public set compareProducts(data: ICompareProducts[]) {
+    this._compareProducts = [...data];
+    this.compareProducts$.next(this._compareProducts);
   }
 
   public buy(product: IProducts): void {

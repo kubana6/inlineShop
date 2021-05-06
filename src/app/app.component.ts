@@ -32,6 +32,13 @@ export class AppComponent implements OnInit {
   public isActive = this.modalAuth.isActiveWindow;
 
   ngOnInit(): void {
+    const dataCompare = JSON.parse(localStorage.getItem('compare'));
+    if (dataCompare === null) {
+      localStorage.setItem('compare', JSON.stringify([]));
+      this.storageService.compareProducts = [];
+    } else {
+      this.storageService.compareProducts = dataCompare;
+    }
     this.storageService.authData$.subscribe((value) => {
       this.authValue = value;
     });
@@ -69,7 +76,19 @@ export class AppComponent implements OnInit {
         'Сделал страницу с характеристиками',
         'https://github.com/kubana6/onlineShop/commit/ff775ae1e7c6a73f4e32efbdace439bb9f06837e',
       ],
-      ['27.04', 'Сделал страницу личного кабинета, добавил баланс.'],
+      [
+        '27.04',
+        'Сделал страницу личного кабинета, добавил баланс',
+        'https://github.com/kubana6/onlineShop/commit/587ba40d918b42d69aa72c748789df697dada81b',
+      ],
+      [
+        '03.05',
+        'Добавил валидацию формы заказа',
+        'https://github.com/kubana6/onlineShop/commit/fa718863ed45a3bb6994acecfc2ab001f235ec2a',
+      ], [
+        '05.05',
+        'Добавил страницу с отзывами, оптимизировал поля в характеристиках товара',
+      ],
     ]);
   }
 
@@ -90,6 +109,7 @@ export class AppComponent implements OnInit {
                 orders: [],
                 account_created: new Date().toString(),
                 balance: '10000',
+                compare: [],
               };
               this.crudService.createEntity('users', data);
               return data;

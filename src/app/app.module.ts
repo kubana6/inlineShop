@@ -47,6 +47,10 @@ import { CharacteristicsComponent } from './characteristics/characteristics.comp
 import { DetailsComponent } from './details/details.component';
 import { AccountComponent } from './account/account.component';
 import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component';
+import { ComparePageComponent } from './compare-page/compare-page.component';
+import { ShortInfoComponent } from './characteristics/short-info/short-info.component';
+import { FeedbackPageComponent } from './details/feedback-page/feedback-page.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -71,6 +75,9 @@ import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component
     DetailsComponent,
     AccountComponent,
     TreeOrdersComponent,
+    ComparePageComponent,
+    ShortInfoComponent,
+    FeedbackPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +109,7 @@ import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component
       registrationStrategy: 'registerWhenStable:30000',
     }),
     MatCheckboxModule,
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
