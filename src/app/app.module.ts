@@ -24,6 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { RatingModule } from 'ng-starrating';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -50,7 +52,7 @@ import { TreeOrdersComponent } from './account/tree-orders/tree-orders.component
 import { ComparePageComponent } from './compare-page/compare-page.component';
 import { ShortInfoComponent } from './characteristics/short-info/short-info.component';
 import { FeedbackPageComponent } from './details/feedback-page/feedback-page.component';
-import { RatingModule } from 'ng-starrating';
+import { PagginatorComponent } from './shared/pagginator/pagginator.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { RatingModule } from 'ng-starrating';
     ComparePageComponent,
     ShortInfoComponent,
     FeedbackPageComponent,
+    PagginatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +113,7 @@ import { RatingModule } from 'ng-starrating';
     }),
     MatCheckboxModule,
     RatingModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

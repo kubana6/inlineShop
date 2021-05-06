@@ -11,16 +11,22 @@ import { SmartphoneCharacteristic } from '../constants';
   styleUrls: ['./characteristics.component.scss'],
 })
 export class CharacteristicsComponent implements OnInit {
-  @Input() public characteristic: ICharacteristic;
+  public characteristic: ICharacteristic;
 
   @Input() public charactId: string;
+
   public fieldCharacteristic: string[];
+
   public objCharacteristic: {};
 
   constructor(private route: ActivatedRoute, private crud: CrudService, private storage: StorageService) {}
+
   ngOnInit() {
     this.objCharacteristic = SmartphoneCharacteristic;
     this.fieldCharacteristic = Object.keys(SmartphoneCharacteristic);
+    this.storage.currentCharacteristics$.subscribe((value: ICharacteristic) => {
+      this.characteristic = value;
+    });
   }
 
   public buy(): void {

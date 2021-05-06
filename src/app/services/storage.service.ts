@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IGoods, IProducts, IUser } from '../types';
+import { ICharacteristic, IGoods, IProducts, IUser } from '../types';
 import { CrudService } from './crud.service';
 
 export interface ICompareProducts {
@@ -17,11 +17,17 @@ export class StorageService {
   public compareProducts$: BehaviorSubject<ICompareProducts[] | null> = new BehaviorSubject<ICompareProducts[] | null>(
     null,
   );
+
   public cartProduct$: BehaviorSubject<IGoods[] | null> = new BehaviorSubject<IGoods[]>(null);
+
+  public currentCharacteristics$: BehaviorSubject<ICharacteristic | null> = new BehaviorSubject<ICharacteristic | null>(
+    null,
+  );
 
   public user$: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser>(null);
 
   private _compareProducts: ICompareProducts[];
+
   private _cartProduct: IGoods[] = [];
 
   private _user: IUser | null;
@@ -33,6 +39,8 @@ export class StorageService {
   public authData$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   private _authData: any;
+
+  public _currentCharacteristics: ICharacteristic;
 
   public get currentProducts() {
     return this._currentProducts;
@@ -50,6 +58,15 @@ export class StorageService {
   public set cartProduct(_cartProduct: any) {
     this._cartProduct.push(_cartProduct);
     this.cartProduct$.next(this._cartProduct);
+  }
+
+  public get currentCharacteristic(): ICharacteristic {
+    return this._currentCharacteristics;
+  }
+
+  public set currentCharacteristic(_characteristic: ICharacteristic) {
+    this._currentCharacteristics = _characteristic;
+    this.currentCharacteristics$.next(this._currentCharacteristics);
   }
 
   public get user(): any {

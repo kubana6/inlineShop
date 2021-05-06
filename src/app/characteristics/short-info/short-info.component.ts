@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ICharacteristic, IProducts } from '../../types';
 import { CrudService } from '../../services/crud.service';
 import { StorageService } from '../../services/storage.service';
@@ -9,11 +9,19 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./short-info.component.scss'],
 })
 export class ShortInfoComponent implements OnInit {
-  @Input() public characteristic: ICharacteristic;
+  public characteristic: ICharacteristic;
+
+  public ratingValue: number = 0;
 
   constructor(private crud: CrudService, private storage: StorageService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.storage.currentCharacteristics$.subscribe((value: ICharacteristic) => {
+      this.characteristic = value;
+      this.ratingValue = value.feedback.rating;
+    });
+  }
+
   public buy(): void {
     this.crud
       .getObjectByRef(`${this.characteristic.type}s`, this.characteristic.productId)

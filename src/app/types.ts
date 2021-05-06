@@ -93,10 +93,10 @@ export interface IFeedBack {
 }
 
 export interface ICustomersFeedback {
-  date:string;
-  id:string;
-  name:string;
-  photo:string;
-  rating:number;
-  text:string;
+  date: string;
+  id: string;
+  name: string;
+  photo: string;
+  rating: number;
+  text: string;
 }

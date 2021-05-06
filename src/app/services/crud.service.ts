@@ -72,4 +72,17 @@ export class CrudService {
   public deleteObject(collectionName: string, id: string): Observable<void> {
     return from(this.firestoreService.collection(collectionName).doc(id).delete()).pipe(take(1));
   }
+
+  public handleObjectByRef<T>(collectionName: string, id: string): Observable<any> {
+    return this.firestoreService
+      .collection(collectionName)
+      .doc(id)
+      .snapshotChanges()
+      .pipe(
+        map((ref) => {
+          const data: any = ref.payload.data();
+          return { id, ...data };
+        }),
+      );
+  }
 }

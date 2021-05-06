@@ -1,33 +1,38 @@
 <div class="feedback">
   <div class="info">
-    <app-short-info [characteristic]="characteristic"></app-short-info>
+    <app-short-info></app-short-info>
     <div class="comment">
       <h2 class="title">Feedback</h2>
       <div class="feedbacks">
-        <mat-card *ngFor="let feedback of characteristic.feedback.customers_feedback">
+        <mat-card *ngFor="let feedback of currentFeedbackPage; trackBy: trackByFn">
           <mat-card-header>
-            <img [src]="feedback.photo" mat-card-avatar class="header-image"/>
-            <mat-card-title>{{feedback.name | titlecase}}</mat-card-title>
-            <mat-card-subtitle>  <star-rating
-              [value]="feedback.rating"
-              [totalstars]="5"
-              checkedcolor="orange"
-              uncheckedcolor="black"
-              size="18px"
-              [readonly]="true"
-
-            ></star-rating></mat-card-subtitle>
+            <img [src]="feedback.photo" mat-card-avatar class="header-image" />
+            <mat-card-title>{{ feedback.name | titlecase }}</mat-card-title>
+            <mat-card-subtitle>
+              <star-rating
+                [value]="feedback.rating"
+                [totalstars]="5"
+                checkedcolor="orange"
+                uncheckedcolor="black"
+                size="18px"
+                [readonly]="true"
+              ></star-rating
+            ></mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content><p>
-            {{feedback.text}}
-          </p></mat-card-content>
+          <mat-card-content
+            ><p>
+              {{ feedback.text }}
+            </p></mat-card-content
+          >
         </mat-card>
       </div>
 
       <div class="empty">
         <mat-card>
           <mat-card-content>
-            <p class="first-comment" *ngIf="characteristic.feedback.count === 0">Feedbacks is empty, leave your first review!</p>
+            <p class="first-comment" *ngIf="characteristic.feedback.count === 0">
+              Feedbacks is empty, leave your first review!
+            </p>
             <div class="send-feedback" *ngIf="user?.id">
               <p class="field">Your rating</p>
               <star-rating
@@ -50,10 +55,18 @@
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button color="primary" [disabled]="commentUser.invalid || disabledButton" mat-button (click)="onSubmit()">Send</button>
+            <button color="primary" [disabled]="commentUser.invalid || disabledButton" mat-button (click)="onSubmit()">
+              Send
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
+    <app-pagginator
+      (page)="changePage($event)"
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+    ></app-pagginator>
   </div>
 </div>

@@ -5,13 +5,11 @@
       <mat-tab-group>
         <mat-tab label="Сharacteristics">
           <ng-template matTabContent>
-            <app-characteristics [characteristic]="characteristic" [charactId]="charactId"></app-characteristics>
+            <app-characteristics [charactId]="charactId"></app-characteristics>
           </ng-template>
         </mat-tab>
         <mat-tab label="Customer feed back">
-          <ng-template matTabContent
-            ><app-feedback-page [characteristic]="characteristic" [charactId]="charactId"></app-feedback-page>
-          </ng-template>
+          <ng-template matTabContent><app-feedback-page [charactId]="charactId"></app-feedback-page> </ng-template>
         </mat-tab>
       </mat-tab-group>
     </div>

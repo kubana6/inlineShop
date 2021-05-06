@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
+import { element } from 'protractor';
 import { SmartphoneCharacteristic } from '../constants';
 import { ICompareProducts, StorageService } from '../services/storage.service';
 import { CrudService } from '../services/crud.service';
 import { CompareService } from '../services/compare.service';
 import { ICharacteristic } from '../types';
-import { forkJoin } from 'rxjs';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-compare-page',
@@ -14,9 +14,13 @@ import { element } from 'protractor';
 })
 export class ComparePageComponent implements OnInit {
   public smartpphoneField = SmartphoneCharacteristic;
+
   public smartphoneArrField = Object.keys(this.smartpphoneField);
+
   public productsCharacteristics: ICharacteristic[];
+
   public compareProducts: ICompareProducts[];
+
   public productsEntriesCharacteristics: [string, any][][];
 
   constructor(private storage: StorageService, private crud: CrudService, private compare: CompareService) {}

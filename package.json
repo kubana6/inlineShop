@@ -29,6 +29,7 @@
     "@angular/router": "~11.2.5",
     "@angular/service-worker": "~11.2.5",
     "firebase": "^8.3.1",
+    "jw-angular-pagination": "^1.2.0",
     "ng-starrating": "^1.0.20",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

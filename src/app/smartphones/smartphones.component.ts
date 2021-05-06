@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { CrudService } from '../services/crud.service';
 import { ICompareProducts, StorageService } from '../services/storage.service';
 import { IProducts, IUser } from '../types';
 import { CompareService } from '../services/compare.service';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-smartphones',
@@ -23,7 +23,9 @@ export class SmartphonesComponent implements OnInit, OnDestroy {
   public typeProduct: string;
 
   public isChecked: boolean = false;
+
   private getDataCompare: Subscription;
+
   public compareProducts: ICompareProducts[];
 
   constructor(
